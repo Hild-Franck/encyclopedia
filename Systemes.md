@@ -6,5 +6,5 @@ Permet de filtrer des lignes
 > Permet de filtrer des *lignes*, ne s'utilise pas pour filtrer des expressions sur une meme ligne ; on lui prefere ***sed***
 
 #### Options
-**-o:** Permet de return la string qui a match
-**-P:** Permet d'utiliser la synthaxe *Perl*, plus puissante et permissive
+- **-o:** Permet de return la string qui a match
+- **-P:** Permet d'utiliser la synthaxe *Perl*, plus puissante et permissive
