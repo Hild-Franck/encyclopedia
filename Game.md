@@ -65,3 +65,71 @@ Definit le mode video de l’affichage
 - *title:* titre de la fenêtre
 - *iconPath:* chemin vers le fichier image de l’icône.
 Definit un titre et une icône pour la fenêtre.
+
+## WebGL
+Le webGL est un standard permettant d’utiliser openGL grâce au canvas de HTML5.
+
+### Definitions
+#### Vertex Shader
+Programme qui est appele pour chaque vertice
+> **Exemple:** *Appelé 4 fois pour un carré*
+
+#### Fragment Shader
+Programme appele une fois par pixel
+> **Exemple:** *Appelé 10000 pour un canvas de 100x100 px*
+
+### API
+#### clearColor(*r, g, b, a*)
+- *r:* rouge
+- *g:* vert
+- *b:* bleu
+- *a:* opacité
+Couleur par défaut utilisée lorsque les buffer de couleurs sont clear
+
+#### clear(*mask*)
+- *mask* : le buffer a reset
+Reset un buffer à ses valeurs prédéfinies (= par défaut)
+
+#### createBuffer()
+Crée et initialise un buffer, afin d’injecter des données dans le GPU
+
+#### bindBuffer(*target, buffer*)
+- *target:* le type de buffer
+- *buffer:* le buffer à lier
+Lie un buffer à un type de buffer
+
+#### bufferData(*target, arrayBuffer, usage*)
+- *target:* le type de buffer
+- *arrayBuffer:* un tableau de données typé
+- *usage:* le type d’accès mémoire sur les datas
+Crée le data store de l’objet du buffer en y chargeant les datas
+
+#### attachShader(*program, shader*)
+- *program:* le programme sur lequel on souhaite attacher le shader
+- *shader:* le shader (fragment ou vertex) que l’on souhaite attacher au programme
+Attache un shader a un programme
+
+> **Note:**
+> Apres avoir attacher les shaders, il faut les lier avec la methode **linkProgram**
+
+#### linkProgram(*program*)
+- *program:* le programme sur lequel on veut link des shaders.
+Lie les shaders attachés à un programme au programme en question
+
+#### getAttribLocation(*program, attributeName*)
+- *program:* le programme dans lequel on cherche l’attribut
+- *attributeName:* le nom de l’attribut que l’on recherche
+Recherche un attribut dans un programme
+
+> **Return:** L’index de l’attribut en int long ou -1 si il n’est pas trouvé.
+
+> **Note:**
+> Les attributs sont définis dans les shaders
+
+#### vertexAttribPointer(*index, size, type, normalized, stride, offset*)
+- *index:*
+- *size:*
+- *type:*
+- *normalized:*
+- *stride:*
+- *offset:*
