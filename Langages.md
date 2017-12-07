@@ -24,18 +24,17 @@ Pour vérifier quels flags sont activés sur un nombre binaire, il suffit de dé
 
 Il suffit donc, pour verifier tout les flags, d'enchaîner une série de if qui vérifie un ensemble de flags avec chaque flag.
 
-> **Exemple:** *verification des flags 1, 10, 100*
-
-```
-int flags = 13 // 1101
-if (flags & 1 > 0) {
-/* … */
-}
-if (flags & 10 > 0) {
-/* … */
-}
-if (flags & 100 > 0) {
-/* … */
-}
-...
-```
+> **Exemple:** *verification des flags 1, 10, 100*\
+> ```c++
+> int flags = 13 // 1101
+> if (flags & 1 > 0) {
+> /* … */
+> }
+> if (flags & 10 > 0) {
+> /* … */
+> }
+> if (flags & 100 > 0) {
+> /* … */
+> }
+> ...
+> ```
