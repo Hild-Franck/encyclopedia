@@ -1,4 +1,4 @@
-# Musique
+# Musique :notes:
 ## Composition
 **Definitions:**
 - **Rythme:** Succession ordonnee de durees de son.

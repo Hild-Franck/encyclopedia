@@ -1,4 +1,4 @@
-# Langages
+# Langages :octocat:
 ## Bash script
 ### Synthax
 #### Double bracket `[[ ... ]]`

@@ -1,4 +1,4 @@
-# Management
+# Management :busts_in_silhouette:
 ## Conclure une reunion
 Une réunion, c’est une **suite d’étapes**, durant lesquelles il faut profiter de la dynamique créée par le groupe. Et ces étapes, ainsi que le temps à y consacrer, constitue le **plan détaillé** de la réunion.
 La conclusion, c’est la dernière étape de la réunion, et on y distingue **trois parties** :

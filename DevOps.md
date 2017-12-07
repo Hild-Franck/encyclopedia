@@ -1,4 +1,4 @@
-# DevOps
+# DevOps :construction_worker:
 ## Docker
 Docker permet la simplification des workflows et de la communication. Autrement dit, il permet un déploiement plus simple des applications.
 

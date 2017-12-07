@@ -1,4 +1,4 @@
-# Cuisine
+# Cuisine :hocho:
 ## Plats
 ### Gratin de pates
 Si de la creme a 30% de matiere grasse est utilisee (15cl), le gratin va rendre un peu de graisse.
