@@ -1,5 +1,5 @@
-# DevOps
-## Docker
+# DevOps :construction_worker:
+## Docker  :whale:
 Docker permet la simplification des workflows et de la communication. Autrement dit, il permet un déploiement plus simple des applications.
 
 Ce n’est évidemment pas le seul avantage de Docker ; il permet également d’augmenter la productivité, de gérer les dépendances plus facilement,etc. De plus, de plus en plus de cloud (comme AWS) le supporte.
@@ -54,5 +54,9 @@ Un *Docker Mirror Registry* permet de mettre en place un registry local, qui sto
 
 ##### Mise en place
 Pour les systemes utilisant systemd comme gestionnaire de service, il faut ajouter la ligne suivante au fichier `/etc/docker/daemon` (JSON):
-`"registry-mirrors": [ "http://<mirror_host>:<mirror_port>" ]`
+
+```json
+"registry-mirrors": [ "http://<mirror_host>:<mirror_port>" ]
+```
+
 Pour la modification soit prise en compte par Docker, il faut restart le service Docker.
