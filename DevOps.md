@@ -45,3 +45,14 @@ Il est également possible de sauver des data dans le file system, mais cette pr
 - Peu de place
 - Le state n’est pas conservé a chaque redémarrage
 - Le container dépend du host (et de son fs) et n’est donc plus scalable
+
+### Docker Mirror Registry
+##### Interet
+Un *Docker Mirror Registry* permet de mettre en place un registry local, qui stocke les images que l'on pull. Si l'image que l'on pull existe dans le mirror registry, il sera pull depuis lui, et non depuis internet, ce qui prend beaucoup moins de temps.
+> **Note:**
+> Le Docker Mirror Registry doit etre sur le meme fs ou le meme reseau local que le(s) Docker Server pour que ca ait de l'interet. Cela est particulierement utile lorsqu'on utiliser `docker-machine`
+
+##### Mise en place
+Pour les systemes utilisant systemd comme gestionnaire de service, il faut ajouter la ligne suivante au fichier `/etc/docker/daemon` (JSON):
+`"registry-mirrors": [ "http://<mirror_host>:<mirror_port>" ]`
+Pour la modification soit prise en compte par Docker, il faut restart le service Docker.
