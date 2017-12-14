@@ -54,5 +54,9 @@ Un *Docker Mirror Registry* permet de mettre en place un registry local, qui sto
 
 ##### Mise en place
 Pour les systemes utilisant systemd comme gestionnaire de service, il faut ajouter la ligne suivante au fichier `/etc/docker/daemon` (JSON):
-`"registry-mirrors": [ "http://<mirror_host>:<mirror_port>" ]`
+
+```json
+"registry-mirrors": [ "http://<mirror_host>:<mirror_port>" ]
+```
+
 Pour la modification soit prise en compte par Docker, il faut restart le service Docker.
