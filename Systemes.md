@@ -9,10 +9,10 @@ Permet de filtrer des lignes
 > Permet de filtrer des *lignes*, ne s'utilise pas pour filtrer des expressions sur une meme ligne ; on lui prefere ***sed***
 
 #### Options
-**`-o`:** Permet de return la string qui a match
-**`-P`:** Permet d'utiliser la synthaxe *Perl*, plus puissante et permissive
-**`-v`:** Tri les lignes en excluant un pattern
-**`-m`*`<nombre_de_ligne>`*:** Defini le nombre de ligne a retourner
+- **`-o`:** Permet de return la string qui a match
+- **`-P`:** Permet d'utiliser la synthaxe *Perl*, plus puissante et permissive
+- **`-v`:** Tri les lignes en excluant un pattern
+- **`-m`*`<nombre_de_ligne>`*:** Defini le nombre de ligne a retourner
 
 ### awk
 > **Note:**
@@ -35,7 +35,7 @@ Les motifs sont optionnels.
 ##### Actions
 awk utilise son propre langage pour les actions.
 
-**`print`:** affiche a l'ecran
+- **`print`:** affiche a l'ecran
 
 ### sed
 Permet le traitement de texte ligne par ligne.
@@ -57,4 +57,4 @@ Les matches des groupes `(groupe1)(groupe2)` de la regex peuvent etre recuperer 
 > - Pour integrer les parenthese a la synthaxe regex, dans sed, il faut les faire preceder d'un `\`.
 
 ##### Flags
-**`g`:** Active le nombre greedy ; remplace **tous** les matches par le motif de remplacement par ligne au lieu de seulement le premier.
+- **`g`:** Active le nombre greedy ; remplace **tous** les matches par le motif de remplacement par ligne au lieu de seulement le premier.
