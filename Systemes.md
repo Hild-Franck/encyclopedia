@@ -39,6 +39,9 @@ awk utilise son propre langage pour les actions.
 
 ### sed
 Permet le traitement de texte ligne par ligne.
+#### Options
+**`-i`*`[extension_du_backup]`*:** Permet de modifier directement le ficher contenant le texte. Si une extension est precisee, un fichier de backup sera cree.
+
 #### Subtitution
 La synthaxe permettant la subtitution est la suivante:
 
