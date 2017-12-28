@@ -1,5 +1,19 @@
 # Systemes :computer:
 ## Unix
+### Definitions
+#### Word Splitting
+
+#### File Globbing
+
+### echo
+Permet d'afficher ce qui lui ai donne en entree.
+> **Notes:**
+> Lorsqu'on `echo` une variable sans les double quotes, la variable sera sujet au *word splitting* et au *file globbing*. Une string sur plusieurs lignes sera notamment consideree comme une seule ligne en sortie.
+
+#### Options
+- **`-e`:** Permet d'escape, entre autre, les backslashes tel que `\n`, `\r`, ... 
+- **`-n`:** N'ajoute pas le retour a la ligne a la fin du display 
+
 ### grep
 > **Note:**
 > Ce qui suit est valable pour l'implementation **GNU** de ***grep***
@@ -13,6 +27,7 @@ Permet de filtrer des lignes
 - **`-P`:** Permet d'utiliser la synthaxe *Perl*, plus puissante et permissive
 - **`-v`:** Tri les lignes en excluant un pattern
 - **`-m`*`<nombre_de_ligne>`*:** Defini le nombre de ligne a retourner
+- **`-c`:** retourne le nombre de lignes en sortie
 
 ### awk
 > **Note:**
@@ -39,6 +54,14 @@ awk utilise son propre langage pour les actions.
 
 ### sed
 Permet le traitement de texte ligne par ligne.
+
+#### Options
+**`-i`*`[extension_du_backup]`*:** Permet de modifier directement le ficher contenant le texte. Si une extension est precisee, un fichier de backup sera cree.
+
+**`-r`:** Permet d'utiliser les *extended regex*, qui permet d'ecrire les regex comme avec grep par exemple.
+
+> **WARNING:** Les Regex de sed, meme en mode exended, ne supporte pas les PCRE (Perl Compatible REgex)
+
 #### Subtitution
 La synthaxe permettant la subtitution est la suivante:
 
@@ -54,7 +77,7 @@ Les matches des groupes `(groupe1)(groupe2)` de la regex peuvent etre recuperer 
 
 > **Notes:**
 > - Dans une regex, un groupe est entoure de parentheses
-> - Pour integrer les parenthese a la synthaxe regex, dans sed, il faut les faire preceder d'un `\`.
+> - Pour integrer les parenthese a la synthaxe regex, dans sed, il faut les faire preceder d'un `\` ou utiliser l'option `-r` pour pouvoir utiliser les *extended regex*.
 
 ##### Flags
 - **`g`:** Active le nombre greedy ; remplace **tous** les matches par le motif de remplacement par ligne au lieu de seulement le premier.
