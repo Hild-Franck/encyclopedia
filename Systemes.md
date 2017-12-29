@@ -69,15 +69,15 @@ La synthaxe permettant la subtitution est la suivante:
 
 Le principe est simple ; on donne un motif (une regex), et ce qui matche est remplacer par le motif de remplacement.
 > **Exemple:**
-> `*sed s/x/42/g*` permet de remplacer tout les x par le nombre 42.
+> *`sed s/x/42/g`* permet de remplacer tout les x par le nombre 42.
 
 Les matches des groupes `(groupe1)(groupe2)` de la regex peuvent etre recuperer avec la synthaxe `\<numero_du_groupe>`
 > **Exemple:**
-> `sed s/\([0-9]\)/o\1o/` permet de recuperer le premier chiffre d'une ligne et de l'entourer de *o*
+> *`sed s/\([0-9]\)/o\1o/`* permet de recuperer le premier chiffre d'une ligne et de l'entourer de *o*
 
 > **Notes:**
 > - Dans une regex, un groupe est entoure de parentheses
 > - Pour integrer les parenthese a la synthaxe regex, dans sed, il faut les faire preceder d'un `\` ou utiliser l'option `-r` pour pouvoir utiliser les *extended regex*.
 
 ##### Flags
-- **`g`:** Active le nombre greedy ; remplace **tous** les matches par le motif de remplacement par ligne au lieu de seulement le premier.
+- **`g`:** Active le mode greedy ; remplace **tous** les matches par le motif de remplacement par ligne au lieu de seulement le premier.
