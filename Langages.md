@@ -1,8 +1,23 @@
 # Langages
 ## Bash script
-### Synthax
-#### Double bracket `[[ ... ]]`
-Le double bracket ne marche que sur Bash, Zsh et Korn shell. Il permet d'utiliser `&&` et `||` a la place de `-a` et `-o`, ainsi que les Regex et le pattern matching.
+### Synthaxe
+#### Double crochet `[[ ... ]]`
+Le double crochet ne marche que sur Bash, Zsh et Korn shell. Il permet d'utiliser `&&` et `||` a la place de `-a` et `-o`, ainsi que les Regex et le pattern matching.
+
+#### Double parenthese `(( ... ))`
+La double parenthese permet d'utiliser les *expression arithmetiques* telles que `+ - * > <` etc.
+> **Notes:**
+> - Il est preferable d'utiliser la double parenthese lorsqu'on compare deux chiffres entre eux
+> - A l'interieur d'une double parenthese, il est inutile d'ajouter le `$` devant le nom des variables. On peut cependant ajouter un `$` devant la double parenthese pour en retourner le resultat.
+
+> **Exemple:**
+> 
+> ```shell
+> one=1
+> three=$((one + 2))
+> if ((three > 4)); then echo "Poulet"; fi
+> ```
+
 ## C++
 ### Flags
 Le système de flags en C++ sert en quelque sorte à simuler une fonction variadique. Un flag est un nombre binaire dont le premier chiffre est toujours 1 et les autres sont tous 0, afin de faire des opérations bit à bit dessus.
