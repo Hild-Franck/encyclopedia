@@ -1,11 +1,25 @@
 # Langages
 ## Bash script
+### Conditions
+Il existe differentes methodes pour effectuer une condition:
+- `test ...`
+- `[ ... ]`
+- `[[ ... ]]`
+
+Le `[[ ... ]]` est la version la plus recente et intuitive, mais non compatible avec certains shells, tel que *sh*.
+
+#### Expressions conditionnelles
+Ces expressions sont utilisables dans les trois methodes precedemment citees.
+- **`-z`** *`string`* **:** Retourne vrai si la *string* est vide.
+- **`-n`** *`string`* **:** Retourne vrai si la *string* n'est pas vide. Equivalent a **`! -z`** *`string`*.
+- **`-d`** *`directory`* **:** Retourne vrai si le *directory* existe.
+
 ### Synthaxe
 #### Double crochet `[[ ... ]]`
 Le double crochet ne marche que sur Bash, Zsh et Korn shell. Il permet d'utiliser `&&` et `||` a la place de `-a` et `-o`, ainsi que les Regex et le pattern matching.
 
 #### Double parenthese `(( ... ))`
-La double parenthese permet d'utiliser les *expression arithmetiques* telles que `+ - * > <` etc.
+La d ouble parenthese permet d'utiliser les *expression arithmetiques* telles que `+ - * > <` etc.
 > **Notes:**
 > - Il est preferable d'utiliser la double parenthese lorsqu'on compare deux chiffres entre eux
 > - A l'interieur d'une double parenthese, il est inutile d'ajouter le `$` devant le nom des variables. On peut cependant ajouter un `$` devant la double parenthese pour en retourner le resultat.
