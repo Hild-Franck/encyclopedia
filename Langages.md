@@ -7,6 +7,33 @@ Il existe differentes methodes pour effectuer une condition:
 - `[[ ... ]]`
 
 Le `[[ ... ]]` est la version la plus recente et intuitive, mais non compatible avec certains shells, tel que *sh*.
+#### If ... elsif ... else
+##### Synthaxe
+Les conditions commencent toutes par un if et finissent par un fi. Chaque bloc d'instruction commence par un then.
+> **Exemple:**
+> ```bash
+> if <condition>
+> then
+>   ...
+> elif <condition>
+>   ...
+> else
+>   ...
+> fi
+> ```
+
+##### One liner
+Il est possible d'ecrire les conditions en plus "condensees" en mettant un `;` apres la condition et en faisant suivre le then. On peut alors soir ecrire la ou les intructions du bloc d'instruction a la ligne ou bien toujours sur la meme ligne en les separant avec des `;`.
+> **Exemple:**
+> ```bash
+> if <condition>; then
+>   <instruction>
+> fi
+> ```
+> ou
+> ```bash
+> if <instruction>; then <instruction>; fi
+> ```
 
 #### Expressions conditionnelles
 Ces expressions sont utilisables dans les trois methodes precedemment citees.
