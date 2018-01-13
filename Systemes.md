@@ -5,6 +5,20 @@
 
 #### File Globbing
 
+### Ecrire dans un fichier
+Depuis le terminal, il est possible d'ecrire dans le terminal a l'aide des symboles `>` et `>>` :
+```bash
+echo "someString" > myFile
+```
+
+Ici, le symbole `>` permet d'ecrire en *overwrite*.
+```bash
+echo "someString" >> myFile
+```
+
+Et ici, le contenu est ecrit en *append*.
+> **Note:** Dans les deux cas, si *myFile* n'existe pas, il est cree.
+
 ### echo
 Permet d'afficher ce qui lui ai donne en entree.
 > **Notes:**
