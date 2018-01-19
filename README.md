@@ -10,6 +10,7 @@ Je vais tenter de remplir ce repo avec les trucs que j'apprend, peu importe le s
 - **[Economie][economie] :moneybag:**
 - **[DevOps][devops]  :construction_worker:**
 - **[Game][game]  :video_game:**
+- **[Database][database]  :file_cabinet:**
 
 [cuisine]: https://github.com/Hild-Franck/encyclopedia/blob/master/Cuisine.md
 [langages]: https://github.com/Hild-Franck/encyclopedia/blob/master/Langages.md
@@ -19,3 +20,4 @@ Je vais tenter de remplir ce repo avec les trucs que j'apprend, peu importe le s
 [economie]: https://github.com/Hild-Franck/encyclopedia/blob/master/Economie.md
 [devops]: https://github.com/Hild-Franck/encyclopedia/blob/master/DevOps.md
 [game]: https://github.com/Hild-Franck/encyclopedia/blob/master/Game.md
+[database]: https://github.com/Hild-Franck/encyclopedia/blob/master/Database.md
