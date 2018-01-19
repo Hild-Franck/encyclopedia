@@ -60,3 +60,10 @@ Pour les systemes utilisant systemd comme gestionnaire de service, il faut ajout
 ```
 
 Pour la modification soit prise en compte par Docker, il faut restart le service Docker.
+
+### Swarm
+Lors d'un update d'un service, si la configuration du service reste la meme, le service ne sera pas reload. Pour cela, il faut rajouter l'option `-f`. Dans ce cas, le container sera relance !
+> **Exemple:**
+> ```bash
+> docker service update -f myService
+> ```
