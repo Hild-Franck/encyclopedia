@@ -54,3 +54,23 @@ L’émergence d’idées n’est pas conditionnée par la seule personnalité d
 Pour cela, il faut créer des occasions d’échanges, afin d’identifier d’éventuels problèmes et les partager. Il ne faut pas hésité à utiliser les personnes les plus dynamiques pour motiver les autres.
 
 Si cela échoue, il faut essayer de soumettre sa propre proposition, sans l’imposer ; ce sont les collaborateurs qui doivent se l’approprier.
+
+## Prince2
+Prince2 propose une bonne pratique de la gestion de projets.
+> **Note:** Prince2 est proprietaire et appartient a *Axelos*
+
+Cette pratique se veut *focus sur le produit* et non sur l'activite, en plus d'etre souple et evolutive.
+> **Attention:** Prince2 ne fournit pas :
+> - le travail specialise
+> - les methodes
+
+Prince2 comporte plusieurs benefices :
+- Pratiques eprouvees et reconnues
+- Applicable a n'importe quel projet
+- Vocabulaire et approche commune
+- Facilement integrable aux standards de l'industrie
+- Affectation de ressources en Go/NoGo
+- Structure complete et condensee des rapports
+- Limite les reunions
+
+
