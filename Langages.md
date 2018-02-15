@@ -148,3 +148,13 @@ Il suffit donc, pour verifier tout les flags, d'enchaîner une série de if qui 
 > }
 > ...
 > ```
+
+### Mettre un process en background
+```bash
+command_to_make_backgroung &
+```
+
+Il est possible de recuperer le *PID* de la derniere commande mise en background grace a `$!`
+
+> **Note:**
+> Une commande, meme tres longue, mise en background n'est pas bloquante.
