@@ -73,4 +73,11 @@ Prince2 comporte plusieurs benefices :
 - Structure complete et condensee des rapports
 - Limite les reunions
 
-
+### Business Case (Cas d'affaire)
+Permet de juger si un projet est *souhaitable*, *viable* et *realisable* et fournit une *justification* a l'investissement continue qui y est fournit
+#### Purpose
+#### Content
+##### Reasons
+Les raisons qui ont pousse entreprendre le le projet. On y explique egalement en quoi le projet s'inscrit dans la strategie et les objectifs de l'entreprise.
+Pas besoin de fournir des informations detaillees ou des graphiques.
+##### Options
