@@ -35,6 +35,60 @@ Il est possible d'ecrire les conditions en plus "condensees" en mettant un `;` a
 > if <instruction>; then <instruction>; fi
 > ```
 
+### Variables scope
+Une variable d'environnement declaree / modifiee dans un script source est disponible / modifie dans tout les scripts du meme shell
+```bash
+#!/bin/bash
+# main.bash
+
+export test_value=0
+
+test_script() {
+    . ./test-script.bash
+}
+
+test_script 42
+
+echo "$test_value" # print 42
+```
+
+```bash
+#!/bin/bash
+# test-script.bash
+
+test_value="$1"
+
+```
+
+Cependant, les exports dans un subshells sont isoles
+```bash
+#!/bin/bash
+
+export test_value=42
+
+out=$({ test_value=0; })
+
+echo "$test_value" # print 42
+
+```
+
+Pour restreindre le scope d'une variable, il est possible d'utiliser le keyword `declare`
+```bash
+#!/bin/bash
+
+test_function() {
+    declare test1="jesus"
+    test2="poulet"
+}
+
+main() {
+    test_function
+    echo "[$test1 | $test2]"
+}
+
+main # print [ | poulet]
+```
+
 #### Expressions conditionnelles
 Ces expressions sont utilisables dans les trois methodes precedemment citees.
 - **`-z`** *`string`* **:** Retourne vrai si la *string* est vide.
