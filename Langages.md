@@ -35,6 +35,12 @@ Il est possible d'ecrire les conditions en plus "condensees" en mettant un `;` a
 > if <instruction>; then <instruction>; fi
 > ```
 
+#### Expressions conditionnelles
+Ces expressions sont utilisables dans les trois methodes precedemment citees.
+- **`-z`** *`string`* **:** Retourne vrai si la *string* est vide.
+- **`-n`** *`string`* **:** Retourne vrai si la *string* n'est pas vide. Equivalent a **`! -z`** *`string`*.
+- **`-d`** *`directory`* **:** Retourne vrai si le *directory* existe.
+
 ### Variables scope
 Une variable d'environnement declaree / modifiee dans un script source est disponible / modifie dans tout les scripts du meme shell
 ```bash
@@ -88,12 +94,6 @@ main() {
 
 main # print [ | poulet]
 ```
-
-#### Expressions conditionnelles
-Ces expressions sont utilisables dans les trois methodes precedemment citees.
-- **`-z`** *`string`* **:** Retourne vrai si la *string* est vide.
-- **`-n`** *`string`* **:** Retourne vrai si la *string* n'est pas vide. Equivalent a **`! -z`** *`string`*.
-- **`-d`** *`directory`* **:** Retourne vrai si le *directory* existe.
 
 ### Synthaxe
 #### Double crochet `[[ ... ]]`
