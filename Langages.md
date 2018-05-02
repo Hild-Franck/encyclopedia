@@ -2,7 +2,7 @@
 - **[C++][c++]**
 - **[Bash][bash]**
 - **[JavaScript][js]**
-- **[Python][python]**
+- **[Python][python]** 🐍
 
 [c++]: https://github.com/Hild-Franck/encyclopedia/blob/master/Langages/CPP.md
 [bash]: https://github.com/Hild-Franck/encyclopedia/blob/master/Langages/Bash.md

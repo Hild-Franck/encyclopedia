@@ -1,4 +1,4 @@
-# Python
+# Python 🐍
 ## Data structures
 ### Lists vs Tuples
 Les *Lists* sont des sequences de donnees **homogenes** et **mutables**
