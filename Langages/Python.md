@@ -8,6 +8,7 @@ Les *Tuples* sont des sequences de donnees **heterogenes** et **immutables**
 ## Misc
 ### Logging
 *[Source][source1]*
+
 Pour logger des strings avec la library `logging`, il ne faut pas utiliser l'operateur de formatage dans le premier argument comme ceci:
 ```python
 logging.info("Message de : %" % name)
