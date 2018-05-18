@@ -38,20 +38,24 @@ Il y a bien d'autres arguments a ajouter a cette methode
 Defini l'action a effectuer lorsque l'argument est appele.
 - **store:** Attribue la valeur passee a l'argument a une variable.
 
-```python
-""" test.py """
-parser.add_argument("--long", action="store")`
-args = parser.parse_args()
-print args.long # test.py --long poulet -> "poulet"
-```
+> **Exemple:**
+> ```python
+> """ test.py """
+> ...
+> parser.add_argument("--long", action="store")`
+> args = parser.parse_args()
+> print args.long # test.py --long poulet -> "poulet"
+> ```
 
 - **append:** Attribue dans une liste les valeurs passees a chaque appel de cet argument dans une variable.
 
-```python
-""" test.py """
-parser.add_argument("--long", action="append")`
-args = parser.parse_args()
-print args.long # test.py --long poulet --long jesus -> ["poulet", "jesus"]
-```
+> **Exemple:**
+> ```python
+> """ test.py """
+> ...
+> parser.add_argument("--long", action="append")`
+> args = parser.parse_args()
+> print args.long # test.py --long poulet --long jesus -> ["poulet", "jesus"]
+> ```
 
 [source1]:https://stackoverflow.com/questions/29147442/how-to-fix-pylint-logging-not-lazy
