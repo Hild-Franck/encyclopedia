@@ -111,3 +111,14 @@ La d ouble parenthese permet d'utiliser les *expression arithmetiques* telles qu
 > three=$((one + 2))
 > if ((three > 4)); then echo "Poulet"; fi
 > ```
+
+## Misc
+### Chemin absolu du dossier du fichier actuel
+`{BASH_SOURCE[0]}`  ou `$BASH_SOURCE` contient le chemin (souvent relatif) du fichier actuel.
+Faire un `cd` vers le `dirname` de ce fichier et executer un `pwd` donnera le chemin absolu du dossier du fichier actuel. Il faut executer le tout dans un subshell pour eviter que le cd change de dossier dans le shell actuel
+> **Exemple:**
+> 
+> ```bash
+> # /home/myUser/test.bash
+> dir_path="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
+> ```
