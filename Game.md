@@ -10,23 +10,29 @@ La Simple DirectMedia Layer (SDL) est une bibliothèque multimédia écrite en C
 ### Types
 #### TTF_Font
 Permet d'utiliser une font TTF
+
 #### SDL_Event
 Structure permettant d’utiliser des events
+
 #### SDL_Color
 Structure decrivant une couleur *(r, g, b, a)*
+
 #### SDL_Surface
 Structure contenant des pixels utilisée pour du blitting
+
 #### SDL_Rect
 Structure décrivant un rectangle *(x,y,w,h)*
 
 ### API
 #### IMG_Load(char *path)
 - *path:* le chemin vers le fichier à charger
-charge une image
+
+Charge une image
 
 #### SDL_DisplayFormat(SDL_Surface *surface)
 - *surface:* la surface à convertir
-convertit une surface au format et couleur du video framebuffer, afin de pouvoir faire du fast blitting sur la surface d’affichage.
+
+Convertit une surface au format et couleur du video framebuffer, afin de pouvoir faire du fast blitting sur la surface d’affichage.
 
 > **Return:** La nouvelle **SDL_Surface** ou **NULL**
 
@@ -36,10 +42,11 @@ convertit une surface au format et couleur du video framebuffer, afin de pouvoir
 
 #### SDL_Init(Uint32 flags)
 - *flags:* la liste des flags correspondant aux sous-systèmes à charger. Pour tout charger, utiliser le flag **SDL_INIT_EVERYTHING**.
+
 Initialise des sous-systèmes de SDL.
 
 #### SDL_Quit()
-clean tout les sous-systèmes initialisés.
+Clean tout les sous-systèmes initialisés.
 
 > **Note:**
 > C’est une bonne idée d’utiliser cette fonction avec `atexit()` pour être sur qu’elle soit appeler dès que l’application se ferme.
@@ -53,6 +60,7 @@ clean tout les sous-systèmes initialisés.
 - *height:* hauteur de la fenêtre d’affichage
 - *bpp:* bit-per-pixel
 - *flags:* ensemble d’options diverses
+
 Definit le mode video de l’affichage
 
 > **Return:** La **SDL_Surface** du framebuffer ou **NULL**
@@ -64,6 +72,7 @@ Definit le mode video de l’affichage
 
 - *title:* titre de la fenêtre
 - *iconPath:* chemin vers le fichier image de l’icône.
+
 Definit un titre et une icône pour la fenêtre.
 
 ## WebGL
@@ -84,10 +93,12 @@ Programme appele une fois par pixel
 - *g:* vert
 - *b:* bleu
 - *a:* opacité
+
 Couleur par défaut utilisée lorsque les buffer de couleurs sont clear
 
 #### clear(*mask*)
 - *mask* : le buffer a reset
+
 Reset un buffer à ses valeurs prédéfinies (= par défaut)
 
 #### createBuffer()
@@ -96,17 +107,20 @@ Crée et initialise un buffer, afin d’injecter des données dans le GPU
 #### bindBuffer(*target, buffer*)
 - *target:* le type de buffer
 - *buffer:* le buffer à lier
+
 Lie un buffer à un type de buffer
 
 #### bufferData(*target, arrayBuffer, usage*)
 - *target:* le type de buffer
 - *arrayBuffer:* un tableau de données typé
 - *usage:* le type d’accès mémoire sur les datas
+
 Crée le data store de l’objet du buffer en y chargeant les datas
 
 #### attachShader(*program, shader*)
 - *program:* le programme sur lequel on souhaite attacher le shader
 - *shader:* le shader (fragment ou vertex) que l’on souhaite attacher au programme
+
 Attache un shader a un programme
 
 > **Note:**
