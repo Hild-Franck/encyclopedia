@@ -114,6 +114,8 @@ La d ouble parenthese permet d'utiliser les *expression arithmetiques* telles qu
 
 ## Misc
 ### Chemin absolu du dossier du fichier actuel
+*[Source][source1]*
+
 `{BASH_SOURCE[0]}`  ou `$BASH_SOURCE` contient le chemin (souvent relatif) du fichier actuel.
 Faire un `cd` vers le `dirname` de ce fichier et executer un `pwd` donnera le chemin absolu du dossier du fichier actuel. Il faut executer le tout dans un subshell pour eviter que le cd change de dossier dans le shell actuel
 > **Exemple:**
@@ -122,3 +124,5 @@ Faire un `cd` vers le `dirname` de ce fichier et executer un `pwd` donnera le ch
 > # /home/myUser/test.bash
 > dir_path="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 > ```
+
+[source1]: https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
