@@ -1,5 +1,17 @@
 # Systemes
 ## Unix
+### Programmes
+#### Squid
+Squid est un proxy et reverse-proxy
+
+##### SSL
+Lorsque des requetes HTTPS transitent dans Squid, ces dernieres ne sont pas loggees dans `access.log`, puisque les data sont chifrees.
+Seule la methode *CONNECT*, qui ouvre la connection SSL/TLS, est loggee lorsqu'elle est faite via le proxy.
+
+###### SSL Bumping
+Il est possible de traiter les requetes HTTPS comme des requetes HTTP grace au SSL Bumping.
+> **Warning:** Le SSL Bumping presente autant un benefice qu'un inconvenient en terme de securite.
+
 ### Definitions
 #### Word Splitting
 
