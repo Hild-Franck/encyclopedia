@@ -71,6 +71,28 @@ Afin de creer une image Docker, on decrit chaque layer grace a une instruction d
 | **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer R | Building |
 | **RUN** echo "b" | Layer C | Building | **RUN** echo "b" | Layer S | Building |
 
+#### Instructions
+- **FROM** `image:tag`: image sur laquelle se base la nouvelle image
+- **MAINTAINER** `prenom nom <mail>`: informations pour contacter l'auteur du Dockerfile. Ces informations se retrouvent dans les metadata de l'image build.
+- **LABEL** `"key"="value"`: ajoute des informations dans les metadata de l'image pour identifier / rechercher des images. On peut voir les labels d'une image grace a la commande `docker inspect`
+- **USER** `username`: definit quel user va run les processes. Par defaut, cet user est `root`
+
+> **WARNING:** En production, il est conseille de run les processes avec un user *sans* privileges, pour des questions de securite.
+
+- **ENV** `VARNAME value` ou `VARNAME1=value1 VARNAME2=value2`: image sur laquelle se base la nouvelle image
+- **RUN** `command`: execute une commande shell
+
+> **NOTES:**
+> 
+> - Il vaut mieux ne pas *RUN* des commandes de type `apt update` car cela rallonge les temps de build. Mieux vaut se baser sur des images contenant deja les updates.
+> - Chaque instruction creant un *image layer*, c'est une bonne idee de combiner les commandes ou de faire et ajouter un script avec *ADD* et l'executer avec *RUN* pour limiter le nombre d'instruction (et donc la taille de l'image)
+
+- **ADD** `sourcePath destinationPath`: inclus des fichiers du host vers l'image. Ils sont *copies*
+- **WORKDIR** `path`: change le dossier actuel dans l'image. Toutes les instructions qui suivent seront executees dans ce `path`
+- **CMD** `commandArray`: Defini la commande qui va lancer les process dans le container. Il est vivement conseille de n'avoir qu'un process par container
+
+> **Exemple:** **CMD** ["echo", "'a'"]
+
 ## Docker Mirror Registry
 #### Interet
 Un *Docker Mirror Registry* permet de mettre en place un registry local, qui stocke les images que l'on pull. Si l'image que l'on pull existe dans le mirror registry, il sera pull depuis lui, et non depuis internet, ce qui prend beaucoup moins de temps.
