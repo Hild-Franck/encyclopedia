@@ -11,6 +11,7 @@ Docker fonctionne sur un modèle client/serveur :
 Un client peut s'adresser à n’importe quel nombre de serveur qu’il le souhaite, pour un bonne et simple raison ; ils possèdent tous deux le même binary.
 
 Pour qu’un serveur Docker écoute les connections entrantes, il suffit de le lancer avec le flag `-d` :
+
 ```shell
 docker -d
 ```
@@ -28,6 +29,7 @@ Il existe deux cas :
 Pour faciliter la communication avec un serveur Docker, le deamon possède une API. De même, le networking de Docker est un bridge par l’interface Docker.
 
 D’ailleurs, il est possible d’utiliser le réseau de l'hôte grâce à la commande:
+
 ```shell
 docker -d --net host
 ```
@@ -49,6 +51,47 @@ Il est également possible de sauver des data dans le file system, mais cette pr
 Une image Docker est une pile de couche de *filesystem*. Chaque instruction permettant de construire une telle image genere une nouvelle couche, dependante de celle qui la precede. Ces couches pouvant etre reutilise entre differentes images, cela permet de sauver du space disk et du reseau.
 
 > **Note:** Ce systeme de *layers*, couple aux *tags* qu'il est possible de , permet de faire du *Revision Control*.
+
+### Dockerfile
+Afin de creer une image Docker, on decrit chaque layer grace a une instruction dans le fichier `Dockerfile`. Chaque instruction genere un layer, sauvegarde par Docker lors du build. Un layer peut etre reutilise par une autre image si les instructions consecutives sont les memes *en partant de la premiere instruction*.
+
+**Exemple 1:** *Utilisation des layers build par l'image 1 par l'image 2 pour les instructions consecutives a partir de la premiere instruction*
+
+| Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
+|:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
+| **FROM** ubuntu | Layer A | Building | **FROM** ubuntu | Layer A | Using cache |
+| **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer B | Using cache |
+| **RUN** echo "b" | Layer C | Building | **RUN** echo "poulet" | Layer Z | Building |
+
+**Exemple 2:** *L'image 2 n'utilise pas les layers build par l'image 1 car la premiere instruction est differente et chaque layer depend des layers qui le precede*
+
+| Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
+|:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
+| **FROM** ubuntu | Layer A | Building | **FROM** alpine | Layer Q | Building |
+| **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer R | Building |
+| **RUN** echo "b" | Layer C | Building | **RUN** echo "b" | Layer S | Building |
+
+#### Instructions
+- **FROM** `image:tag`: image sur laquelle se base la nouvelle image
+- **MAINTAINER** `prenom nom <mail>`: informations pour contacter l'auteur du Dockerfile. Ces informations se retrouvent dans les metadata de l'image build.
+- **LABEL** `"key"="value"`: ajoute des informations dans les metadata de l'image pour identifier / rechercher des images. On peut voir les labels d'une image grace a la commande `docker inspect`
+- **USER** `username`: definit quel user va run les processes. Par defaut, cet user est `root`
+
+> **WARNING:** En production, il est conseille de run les processes avec un user *sans* privileges, pour des questions de securite.
+
+- **ENV** `VARNAME value` ou `VARNAME1=value1 VARNAME2=value2`: image sur laquelle se base la nouvelle image
+- **RUN** `command`: execute une commande shell
+
+> **NOTES:**
+> 
+> - Il vaut mieux ne pas *RUN* des commandes de type `apt update` car cela rallonge les temps de build. Mieux vaut se baser sur des images contenant deja les updates.
+> - Chaque instruction creant un *image layer*, c'est une bonne idee de combiner les commandes ou de faire et ajouter un script avec *ADD* et l'executer avec *RUN* pour limiter le nombre d'instruction (et donc la taille de l'image)
+
+- **ADD** `sourcePath destinationPath`: inclus des fichiers du host vers l'image. Ils sont *copies*
+- **WORKDIR** `path`: change le dossier actuel dans l'image. Toutes les instructions qui suivent seront executees dans ce `path`
+- **CMD** `commandArray`: Defini la commande qui va lancer les process dans le container. Il est vivement conseille de n'avoir qu'un process par container
+
+> **Exemple:** **CMD** ["echo", "'a'"]
 
 ## Docker Mirror Registry
 #### Interet
