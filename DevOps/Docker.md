@@ -56,6 +56,7 @@ Une image Docker est une pile de couche de *filesystem*. Chaque instruction perm
 Afin de creer une image Docker, on decrit chaque layer grace a une instruction dans le fichier `Dockerfile`. Chaque instruction genere un layer, sauvegarde par Docker lors du build. Un layer peut etre reutilise par une autre image si les instructions consecutives sont les memes *en partant de la premiere instruction*.
 
 **Exemple 1:** *Utilisation des layers build par l'image 1 par l'image 2 pour les instructions consecutives a partir de la premiere instruction*
+
 | Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
 |:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
 | **FROM** ubuntu | Layer A | Building | **FROM** ubuntu | Layer A | Using cache |
@@ -63,6 +64,7 @@ Afin de creer une image Docker, on decrit chaque layer grace a une instruction d
 | **RUN** echo "b" | Layer C | Building | **RUN** echo "poulet" | Layer Z | Building |
 
 **Exemple 2:** *L'image 2 n'utilise pas les layers build par l'image 1 car la premiere instruction est differente et chaque layer depend des layers qui le precede*
+
 | Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
 |:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
 | **FROM** ubuntu | Layer A | Building | **FROM** alpine | Layer Q | Building |
