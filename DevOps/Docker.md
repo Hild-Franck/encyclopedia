@@ -11,6 +11,7 @@ Docker fonctionne sur un modèle client/serveur :
 Un client peut s'adresser à n’importe quel nombre de serveur qu’il le souhaite, pour un bonne et simple raison ; ils possèdent tous deux le même binary.
 
 Pour qu’un serveur Docker écoute les connections entrantes, il suffit de le lancer avec le flag `-d` :
+
 ```shell
 docker -d
 ```
@@ -28,6 +29,7 @@ Il existe deux cas :
 Pour faciliter la communication avec un serveur Docker, le deamon possède une API. De même, le networking de Docker est un bridge par l’interface Docker.
 
 D’ailleurs, il est possible d’utiliser le réseau de l'hôte grâce à la commande:
+
 ```shell
 docker -d --net host
 ```
@@ -49,6 +51,23 @@ Il est également possible de sauver des data dans le file system, mais cette pr
 Une image Docker est une pile de couche de *filesystem*. Chaque instruction permettant de construire une telle image genere une nouvelle couche, dependante de celle qui la precede. Ces couches pouvant etre reutilise entre differentes images, cela permet de sauver du space disk et du reseau.
 
 > **Note:** Ce systeme de *layers*, couple aux *tags* qu'il est possible de , permet de faire du *Revision Control*.
+
+### Dockerfile
+Afin de creer une image Docker, on decrit chaque layer grace a une instruction dans le fichier `Dockerfile`. Chaque instruction genere un layer, sauvegarde par Docker lors du build. Un layer peut etre reutilise par une autre image si les instructions consecutives sont les memes *en partant de la premiere instruction*.
+
+**Exemple 1:** *Utilisation des layers build par l'image 1 par l'image 2 pour les instructions consecutives a partir de la premiere instruction*
+| Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
+|:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
+| **FROM** ubuntu | Layer A | Building | **FROM** ubuntu | Layer A | Using cache |
+| **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer B | Using cache |
+| **RUN** echo "b" | Layer C | Building | **RUN** echo "poulet" | Layer Z | Building |
+
+**Exemple 2:** *L'image 2 n'utilise pas les layers build par l'image 1 car la premiere instruction est differente et chaque layer depend des layers qui le precede*
+| Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
+|:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
+| **FROM** ubuntu | Layer A | Building | **FROM** alpine | Layer Q | Building |
+| **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer R | Building |
+| **RUN** echo "b" | Layer C | Building | **RUN** echo "b" | Layer S | Building |
 
 ## Docker Mirror Registry
 #### Interet
