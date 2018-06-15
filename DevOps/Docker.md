@@ -52,7 +52,8 @@ Une image Docker est une pile de couche de *filesystem*. Chaque instruction perm
 
 > **Note:** Ce systeme de *layers*, couple aux *tags* qu'il est possible de , permet de faire du *Revision Control*.
 
-### Dockerfile
+### Build une image Docker
+#### Dockerfile
 Afin de creer une image Docker, on decrit chaque layer grace a une instruction dans le fichier `Dockerfile`. Chaque instruction genere un layer, sauvegarde par Docker lors du build. Un layer peut etre reutilise par une autre image si les instructions consecutives sont les memes *en partant de la premiere instruction*.
 
 **Exemple 1:** *Utilisation des layers build par l'image 1 par l'image 2 pour les instructions consecutives a partir de la premiere instruction*
@@ -71,7 +72,9 @@ Afin de creer une image Docker, on decrit chaque layer grace a une instruction d
 | **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer R | Building |
 | **RUN** echo "b" | Layer C | Building | **RUN** echo "b" | Layer S | Building |
 
-#### Instructions
+> **Note:** Pour desactiver l'utilisation du cache lors du build, il suffit d'ajouter l'option `--nocache` a la commande `docker build`
+
+##### Instructions
 - **FROM** `image:tag`: image sur laquelle se base la nouvelle image
 - **MAINTAINER** `prenom nom <mail>`: informations pour contacter l'auteur du Dockerfile. Ces informations se retrouvent dans les metadata de l'image build.
 - **LABEL** `"key"="value"`: ajoute des informations dans les metadata de l'image pour identifier / rechercher des images. On peut voir les labels d'une image grace a la commande `docker inspect`
@@ -94,12 +97,12 @@ Afin de creer une image Docker, on decrit chaque layer grace a une instruction d
 > **Exemple:** **CMD** ["echo", "'a'"]
 
 ## Docker Mirror Registry
-#### Interet
+### Interet
 Un *Docker Mirror Registry* permet de mettre en place un registry local, qui stocke les images que l'on pull. Si l'image que l'on pull existe dans le mirror registry, il sera pull depuis lui, et non depuis internet, ce qui prend beaucoup moins de temps.
 > **Note:**
 > Le Docker Mirror Registry doit etre sur le meme fs ou le meme reseau local que le(s) Docker Server pour que ca ait de l'interet. Cela est particulierement utile lorsqu'on utiliser `docker-machine`
 
-#### Mise en place
+### Mise en place
 Pour les systemes utilisant systemd comme gestionnaire de service, il faut ajouter la ligne suivante au fichier `/etc/docker/daemon` (JSON):
 
 ```json
