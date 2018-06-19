@@ -96,6 +96,14 @@ Afin de creer une image Docker, on decrit chaque layer grace a une instruction d
 
 > **Exemple:** **CMD** ["echo", "'a'"]
 
+### Run une image Docker
+Pour run une image Docker, il suffit d'utiliser la commande `docker run <image>`. Lorsqu'on run une image Docker, on cree un *container* dans lequel le processus s'execute.
+
+**Options:**
+
+- **`-d`** : run l'image en arriere plan
+- **`-p <host_port>:<container_port>`** : lie un port du host a un port du container
+
 ## Docker Mirror Registry
 ### Interet
 Un *Docker Mirror Registry* permet de mettre en place un registry local, qui stocke les images que l'on pull. Si l'image que l'on pull existe dans le mirror registry, il sera pull depuis lui, et non depuis internet, ce qui prend beaucoup moins de temps.
