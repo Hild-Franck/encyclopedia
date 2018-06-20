@@ -103,6 +103,24 @@ Pour run une image Docker, il suffit d'utiliser la commande `docker run <image>`
 
 - **`-d`** : run l'image en arriere plan
 - **`-p <host_port>:<container_port>`** : lie un port du host a un port du container
+- **`-e <key>=<value>`** : ajoute une variable d'environnement au container
+
+## Containers Docker
+Un container Docker est une *instance* d'une image Docker, dans lequel est encapsule un processus.
+
+### Lister les containers sur un host
+Il est possible de lister les containers sur le docker host actuel grace a la commande `docker ps`.
+Pas defaut, cette commande ne liste que les containers en cours d'execution.
+
+**Options:**
+
+- **`-q`** : retourne seulement les ID des containers
+- **`-a`** : liste tous les containers
+- **`--format <string_format>`** : formatte l'output de la commande en utilisant un template Go qui permet de mettre des placeholders `{{.Placeholder}}`
+
+> **Note:** Disponible depuis la version 1.8
+
+> **Exemple:** `docker ps --format "{{.ID}}\t{{.Image}}"`
 
 ## Docker Mirror Registry
 ### Interet
