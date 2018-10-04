@@ -27,7 +27,9 @@
 #summary {
 	& > li {
 		list-style: none;
-		font-size: 35px;
+		font-size: 25px;
+		border-bottom: black solid 1px;
+		margin-bottom: 10px;
 
 		& > a {
 			color: #222222;
@@ -36,6 +38,9 @@
 			}
 			&:focus {
 				text-decoration: none;
+			}
+			& > i {
+				width: 50px;
 			}
 			& > div {
 				display: inline-block;
