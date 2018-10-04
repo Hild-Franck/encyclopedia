@@ -5,7 +5,7 @@ layout: default
 <div class="home">
   <ul id="summary">
     {% for index in page.summary %}
-    	<li><a href="{{ page.link }}">
+    	<li><a href="{{ index.link }}">
 	      <i class="{{ index.icon }}"></i>
 	      <div>{{ index.name }}</div>
 	    </a></li>
