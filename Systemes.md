@@ -33,6 +33,8 @@ $ echo "someString" >> myFile
 ```
 
 Et ici, le contenu est ecrit en *append*.
+
+{: .note}
 > **Note:**
 > 
 > - Dans les deux cas, si *myFile* n'existe pas, il est cree.
@@ -43,6 +45,7 @@ Permet d'afficher ce qui lui ai donne en entree.
 
 **`echo`** *`[options] [string]`*
 
+{: .note}
 > **Note:**
 > 
 > - Lorsqu'on `echo` une variable sans les double quotes, la variable sera sujet au *word splitting* et au *file globbing*. Une string sur plusieurs lignes sera notamment consideree comme une seule ligne en sortie.
@@ -59,6 +62,7 @@ Permet de filtrer des lignes selon un pattern fourni
 
 **`grep`** *`[options] pattern [files]`*
 
+{: .note}
 > **Notes:**
 >
 > - Ce qui suit est valable pour l'implementation **GNU** de ***grep***
@@ -79,6 +83,7 @@ Permet de traiter des lignes en les parcourant d'un *field separator* a un autre
 
 **`awk`** *`[options] [programme] [fichier]`*
 
+{: .note}
 > **Note:**
 > 
 > - Ce qui suit est valable pour l'implementation **GNU** de ***awk***
@@ -110,6 +115,7 @@ Permet le traitement de texte ligne par ligne.
 
 **`-r`:** Permet d'utiliser les *extended regex*, qui permet d'ecrire les regex comme avec grep par exemple.
 
+{: .warning}
 > **Warning:**
 > 
 > - Les Regex de sed, meme en mode exended, ne supporte pas les PCRE (Perl Compatible REgex)
@@ -120,15 +126,20 @@ La commande permettant la subtitution est la suivante:
 **`sed`** *`s/<motif_a_remplacer>/<motif_de_remplacement>/flag`*
 
 Le principe est simple ; on donne un motif (une regex), et ce qui matche est remplacer par le motif de remplacement.
+
+{: .exemple}
 > **Exemple:**
 > 
 > - *`sed s/x/42/g`* permet de remplacer tout les x par le nombre 42.
 
 Les matches des groupes `(groupe1)(groupe2)` de la regex peuvent etre recuperer avec la synthaxe `\<numero_du_groupe>`
+
+{: .exemple}
 > **Exemple:**
 > 
 > - *`sed s/\([0-9]\)/o\1o/`* permet de recuperer le premier chiffre d'une ligne et de l'entourer de *o*
 
+{: .note}
 > **Notes:**
 > 
 > - Dans une regex, un groupe est entoure de parentheses
