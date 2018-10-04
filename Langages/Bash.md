@@ -9,7 +9,10 @@ Le `[[ ... ]]` est la version la plus recente et intuitive, mais non compatible 
 ### If ... elsif ... else
 #### Synthaxe
 Les conditions commencent toutes par un if et finissent par un fi. Chaque bloc d'instruction commence par un then.
+
+{. exemple}
 > **Exemple:**
+>
 > ```bash
 > if <condition>
 > then

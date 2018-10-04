@@ -51,7 +51,7 @@ Defini l'action a effectuer lorsque l'argument est appele.
 
 - **append:** Attribue dans une liste les valeurs passees a chaque appel de cet argument dans une variable.
 
-{: exemple}
+{: .exemple}
 > **Exemple:**
 >
 > ```python

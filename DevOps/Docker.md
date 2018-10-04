@@ -27,7 +27,7 @@ On peut donc en venir à la question suivante ; comment s’effectue la communic
 Il existe deux cas :
 - Le client et le serveur sont sur la même machine, on utilise alors un socket Unix, nommé `docker.sock`.
 
-{: note}
+{: .note}
 > **Note:**
 >
 > - *Un socket Unix permet de partager des données entre deux processus Unix via le système de fichier (plus particulièrement grâce à un fichier `*.sock`)*

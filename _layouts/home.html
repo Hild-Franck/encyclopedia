@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+<div class="home">
+  <li id="summary">
+    {% for index in page.summary %}
+      <i class={{ index.icon }}></i>
+      <div>{{ index.name }}</div>
+    {% endfor %}}
+  </li>
+</div>
