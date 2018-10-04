@@ -2,6 +2,8 @@
 ## Tricks
 ### Inverser un booleen
 Il suffit de comparer bit a bit un booleen variable face a un fixe avec un **XOR** et de retourner le resultat
+
+{: .exemple}
 > **Exemple:** 
 > 
 > ```js

@@ -23,7 +23,10 @@ Les conditions commencent toutes par un if et finissent par un fi. Chaque bloc d
 
 #### One liner
 Il est possible d'ecrire les conditions en plus "condensees" en mettant un `;` apres la condition et en faisant suivre le then. On peut alors soir ecrire la ou les intructions du bloc d'instruction a la ligne ou bien toujours sur la meme ligne en les separant avec des `;`.
+
+{: .exemple}
 > **Exemple:**
+> 
 > ```bash
 > if <condition>; then
 >   <instruction>
@@ -100,10 +103,14 @@ Le double crochet ne marche que sur Bash, Zsh et Korn shell. Il permet d'utilise
 
 ### Double parenthese `(( ... ))`
 La d ouble parenthese permet d'utiliser les *expression arithmetiques* telles que `+ - * > <` etc.
+
+{: .note}
 > **Notes:**
+>
 > - Il est preferable d'utiliser la double parenthese lorsqu'on compare deux chiffres entre eux
 > - A l'interieur d'une double parenthese, il est inutile d'ajouter le `$` devant le nom des variables. On peut cependant ajouter un `$` devant la double parenthese pour en retourner le resultat.
 
+{: .exemple}
 > **Exemple:**
 > 
 > ```shell
@@ -118,6 +125,8 @@ La d ouble parenthese permet d'utiliser les *expression arithmetiques* telles qu
 
 `{BASH_SOURCE[0]}`  ou `$BASH_SOURCE` contient le chemin (souvent relatif) du fichier actuel.
 Faire un `cd` vers le `dirname` de ce fichier et executer un `pwd` donnera le chemin absolu du dossier du fichier actuel. Il faut executer le tout dans un subshell pour eviter que le cd change de dossier dans le shell actuel
+
+{: .exemple}
 > **Exemple:**
 > 
 > ```bash

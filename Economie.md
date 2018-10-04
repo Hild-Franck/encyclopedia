@@ -2,7 +2,10 @@
 ## Placement d’argent pour la retraite
 > *Source: Conférence ”L’éducation financière” par Pierrick Soubiran, Stéphane Bridoux et Benoît Froidure*
 
-> **Attention:** *Les informations suivantes sont issues d'une conference dont la validite et l'objectivite ne sont pas garanties.*
+{: .warning}
+> **Warning:**
+>
+> - *Les informations suivantes sont issues d'une conference dont la validite et l'objectivite ne sont pas garanties.*
 
 ### La retraite
 Plus le temps passe, plus la retraite baisse. Alors combien doit on épargner pour avoir une bonne retraite ?
@@ -18,11 +21,19 @@ Il existe deux types d’investissements :
 Le livret A à un taux de 0.75%. Ce qui signifie que pour doubler une valeur sans en rajouter, il faut attendre 96 ans.
 
 Un PEL, lui, permet de doubler une valeur en 48 ans, puisque qu’il est à 1.5%.
-> **Attention:** *Le PEL va passer a 0.75% en 2018*
+
+{: .warning}
+> **Warning:**
+>
+> - *Le PEL va passer a 0.75% en 2018*
 
 ### Les interets composes
 En plaçant tous les mois entre 50 et 150 euros à 10%, lors de la retraite, on a gagné plus que la somme de tous nos salaires lorsqu’on était actif, à salaire médian.
-> **Notes:** *Il est possible qu’on ne veuille pas placer toute sa vie et profiter de son argent. Il est conseiller d’investir le plus tôt possible quitte à arrêter plus tard et non le contraire, car l’argent a le temps de fructifier.*
+
+{: .note}
+> **Note:**
+>
+> - *Il est possible qu’on ne veuille pas placer toute sa vie et profiter de son argent. Il est conseiller d’investir le plus tôt possible quitte à arrêter plus tard et non le contraire, car l’argent a le temps de fructifier.*
 
 ### L'immobilier locatif
 Ce qui rebute avec l’immobilier locatif, c’est qu’on revend souvent son bien moins cher qu’à l’achat ; il faut en plus rajouter à cela les intérêts du crédit qui a servi à l’acheter en premier lieu.

@@ -57,12 +57,20 @@ Si cela échoue, il faut essayer de soumettre sa propre proposition, sans l’im
 
 ## Prince2
 Prince2 propose une bonne pratique de la gestion de projets.
-> **Note:** Prince2 est proprietaire et appartient a *Axelos*
+
+{: .note}
+> **Note:**
+> 
+> - Prince2 est proprietaire et appartient a *Axelos*
 
 Cette pratique se veut *focus sur le produit* et non sur l'activite, en plus d'etre souple et evolutive.
-> **Attention:** Prince2 ne fournit pas :
-> - le travail specialise
-> - les methodes
+
+{: .warning}
+> **Warning:**
+> 
+> - Prince2 ne fournit pas :
+>   + le travail specialise
+>   + les methodes
 
 Prince2 comporte plusieurs benefices :
 - Pratiques eprouvees et reconnues
