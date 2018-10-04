@@ -12,12 +12,12 @@ Je vais tenter de remplir ce repo avec les trucs que j'apprend, peu importe le s
 - **[Game][game]  :video_game:**
 - **[Database][database]  :file_cabinet:**
 
-[cuisine]: https://github.com/Hild-Franck/encyclopedia/blob/master/Cuisine.md
-[langages]: https://github.com/Hild-Franck/encyclopedia/blob/master/Langages.md
-[systemes]: https://github.com/Hild-Franck/encyclopedia/blob/master/Systemes.md
-[management]: https://github.com/Hild-Franck/encyclopedia/blob/master/Management.md
-[musique]: https://github.com/Hild-Franck/encyclopedia/blob/master/Musique.md
-[economie]: https://github.com/Hild-Franck/encyclopedia/blob/master/Economie.md
-[devops]: https://github.com/Hild-Franck/encyclopedia/blob/master/DevOps.md
-[game]: https://github.com/Hild-Franck/encyclopedia/blob/master/Game.md
-[database]: https://github.com/Hild-Franck/encyclopedia/blob/master/Database.md
+[cuisine]: Cuisine.md
+[langages]: Langages.md
+[systemes]: Systemes.md
+[management]: Management.md
+[musique]: Musique.md
+[economie]: Economie.md
+[devops]: DevOps.md
+[game]: Game.md
+[database]: Database.md
