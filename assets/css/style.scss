@@ -23,3 +23,15 @@
 	background-color: rgba(52, 152, 219, 0.15) !important;
 	padding: 1px 0 1px 20px;
 }
+
+#summary {
+	& > li {
+		list-style: none;
+		font-size: 35px;
+
+		& > div {
+			display: inline-block;
+			padding-left: 20px;
+		}
+	}
+}

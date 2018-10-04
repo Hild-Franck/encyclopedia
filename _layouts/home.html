@@ -3,12 +3,12 @@ layout: default
 ---
 
 <div class="home">
-  <li id="summary">
+  <ul id="summary">
     {% for index in page.summary %}
-    	<ul>
+    	<li><a href="{{ page.link }}">
 	      <i class="{{ index.icon }}"></i>
 	      <div>{{ index.name }}</div>
-	    </ul>
+	    </a></li>
     {% endfor %}
-  </li>
+  </ul>
 </div>
