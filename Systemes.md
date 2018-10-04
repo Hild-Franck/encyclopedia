@@ -10,6 +10,8 @@ Seule la methode *CONNECT*, qui ouvre la connection SSL/TLS, est loggee lorsqu'e
 
 ###### SSL Bumping
 Il est possible de traiter les requetes HTTPS comme des requetes HTTP grace au SSL Bumping.
+
+{: .warning}
 > **Warning:**
 > 
 > - Le SSL Bumping presente autant un benefice qu'un inconvenient en terme de securite.

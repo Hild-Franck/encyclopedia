@@ -1,0 +1,10 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.warning {
+	color: #c0392b !important;
+	border-color: #c0392b !important;
+	background-color: rgba(231, 76, 60, 0.15) !important;
+}
