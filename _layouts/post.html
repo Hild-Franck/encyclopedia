@@ -3,16 +3,21 @@ layout: default
 ---
 
 <div id="navigation">
-	<a href="/">Index</a>
+	<a href="/encyclopedia">Index</a>
 	{% if page.parent %}
-		<span> < </span><a href="{{ page.parent }}"></a>
+		<span> < </span><a href="/encyclopedia/{{ page.parent }}"></a>
 	{% endif %}
 </div>
 
 {% if page.title %}
-	<h1>{{ page.title }}</h1>
+	<h1><i class="{{ page.icon }}"></i>{{ page.title }}</h1>
 {% endif %}
 
 {% if page.description %}
-	<h1><i class="{{ page.icon }}"></i>{{ page.description }}</h1>
+	<p>{{ page.description }}</p>
 {% endif %}
+
+ <hr>
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
