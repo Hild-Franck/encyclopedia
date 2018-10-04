@@ -1,3 +1,10 @@
+---
+layout: post
+title: Systemes
+description: "Les differents OS et leur utilisation"
+icon: "fas fa-desktop"
+---
+
 # Systemes :computer:
 ## Unix
 ### Programmes
