@@ -29,9 +29,15 @@
 		list-style: none;
 		font-size: 35px;
 
-		& > div {
-			display: inline-block;
-			padding-left: 20px;
+		& > a {
+			color: #222222;
+			&:hover {
+				font-style: none;
+			}
+			& > div {
+				display: inline-block;
+				padding-left: 20px;
+			}
 		}
 	}
 }
