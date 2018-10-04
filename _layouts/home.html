@@ -5,8 +5,10 @@ layout: default
 <div class="home">
   <li id="summary">
     {% for index in page.summary %}
-      <i class="{{ index.icon }}"></i>
-      <div>{{ index.name }}</div>
+    	<ul>
+	      <i class="{{ index.icon }}"></i>
+	      <div>{{ index.name }}</div>
+	    </ul>
     {% endfor %}
   </li>
 </div>
