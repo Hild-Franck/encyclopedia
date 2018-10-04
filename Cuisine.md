@@ -1,4 +1,10 @@
-# Cuisine :hocho:
+---
+layout: post
+title: Cuisine
+description: "Astuces et explication de phenomenes culinaires"
+icon: "fas fa-utensils"
+---
+
 ## Plats
 ### Gratin de pates
 Si de la creme a 30% de matiere grasse est utilisee (15cl), le gratin va rendre un peu de graisse.

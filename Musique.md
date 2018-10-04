@@ -1,4 +1,10 @@
-# Musique :notes:
+---
+layout: post
+title: Musique
+description: "Astuces et methodes pour jouer et composer de la musique"
+icon: "fas fa-music"
+---
+
 ## Composition
 **Definitions:**
 - **Rythme:** Succession ordonnee de durees de son.

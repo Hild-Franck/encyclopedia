@@ -1,4 +1,10 @@
-# BDD
+---
+layout: post
+title: Database
+description: "Les differentes bases de donnees et leur utlisation"
+icon: "fas fa-database"
+---
+
 ## InfluxDB
 Sur InfluxDB, la retention des data est infini par defaut (la politique de retention utilisee est alors *autogen*)
 Il est possible de definir une nouvelle politique de retention, mais il faut alors y ecrire des donnees specifiquement, ou par defaut les donnees seront ecrites dans *autogen*

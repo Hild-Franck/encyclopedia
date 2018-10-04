@@ -1,4 +1,10 @@
-# Economie :moneybag:
+---
+layout: post
+title: Economie
+description: "Concepts et astuces en economies"
+icon: "fas fa-hand-holding-usd"
+---
+
 ## Placement d’argent pour la retraite
 > *Source: Conférence ”L’éducation financière” par Pierrick Soubiran, Stéphane Bridoux et Benoît Froidure*
 

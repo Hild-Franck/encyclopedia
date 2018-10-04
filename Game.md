@@ -1,4 +1,10 @@
-# Game  :video_game:
+---
+layout: post
+title: Game
+description: "Concepts et astuce en game dev, game design etc..."
+icon: "fas fa-gamepad"
+---
+
 ## SDL
 La Simple DirectMedia Layer (SDL) est une bibliothèque multimédia écrite en C.
 
