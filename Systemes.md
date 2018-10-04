@@ -5,7 +5,7 @@ description: "Les differents OS et leur utilisation"
 icon: "fas fa-desktop"
 ---
 
-# Systemes :computer:
+# Systemes
 ## Unix
 ### Programmes
 #### Squid

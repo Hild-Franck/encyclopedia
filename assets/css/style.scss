@@ -49,3 +49,14 @@
 		}
 	}
 }
+
+.page-title {
+	margin-bottom: 30px;
+	& i {
+		margin-right: 20px;
+	}
+
+	& > p {
+		font-style: italic;
+	}
+}
