@@ -7,12 +7,12 @@ summary:
       icon: "fas fa-terminal"
       link: Langages/Bash
     - name: C++
-      icon: "fas fa-js-square"
+      icon: "fas fa-code"
       link: Langages/CPP
     - name: JavaScript
-      icon: "fas fa-code"
+      icon: "fab fa-js-square"
       link: Langages/JavaScript
     - name: Python
-      icon: "fas fa-python"
+      icon: "fab fa-python"
       link: Langages/Python
 ---
