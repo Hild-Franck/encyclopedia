@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<div class="section">
+	<div id="navigation">
+		<a href="/encyclopedia">Index</a>
+		{% if page.parent %}
+			<span> < </span><a href="/encyclopedia/{{ page.parent }}"></a>
+		{% endif %}
+	</div>
+	<h1 class="page-title">
+		{% if page.icon %}
+			<i class="{{ page.icon }}"></i>
+		{% endif %}
+		{{ page.title }}
+	</h1>
+  <ul id="summary">
+    {% for index in page.summary %}
+    	<li><a href="{{ index.link }}">
+	      <i class="{{ index.icon }}"></i>
+	      <div>{{ index.name }}</div>
+	    </a></li>
+    {% endfor %}
+  </ul>
+</div>
