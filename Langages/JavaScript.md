@@ -1,4 +1,10 @@
-# JavaScript
+---
+layout: post
+title: "JavaScript"
+description: "Langage de programmation oriente objet a prototype utilise dans les pages webs et les serveurs"
+icon: "fab fa-js-square"
+---
+
 ## Tricks
 ### Inverser un booleen
 Il suffit de comparer bit a bit un booleen variable face a un fixe avec un **XOR** et de retourner le resultat

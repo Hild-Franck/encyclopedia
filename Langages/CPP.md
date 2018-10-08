@@ -1,4 +1,10 @@
-# C++
+---
+layout: post
+title: "C++"
+description: "Langage de programmation compile permettant de coder en procedural ou oriente objet"
+icon: "fas fa-code"
+---
+
 ## Flags
 Le système de flags en C++ sert en quelque sorte à simuler une fonction variadique. Un flag est un nombre binaire dont le premier chiffre est toujours 1 et les autres sont tous 0, afin de faire des opérations bit à bit dessus.
 

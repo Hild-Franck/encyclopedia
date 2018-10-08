@@ -1,4 +1,10 @@
-# Bash script
+---
+layout: post
+title: "Bash script"
+description: "Serie de commandes executees dans un shell"
+icon: "fas fa-terminal"
+---
+
 ## Conditions
 Il existe differentes methodes pour effectuer une condition:
 - `test ...`
