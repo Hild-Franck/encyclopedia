@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Docker
+parent: DevOps
 description: "Docker permet la simplification des workflows et de la communication. Autrement dit, il permet un déploiement plus simple des applications.
 
 Ce n’est évidemment pas le seul avantage de Docker ; il permet également d’augmenter la productivité, de gérer les dépendances plus facilement,etc. De plus, de plus en plus de cloud (comme AWS) le supporte."

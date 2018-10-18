@@ -1,4 +1,10 @@
-# Python 🐍
+---
+layout: post
+title: "Python"
+description: "Langage de programmation oriente objet interprete. Il offre entre autre un typage dynamique fort et des outils de haut niveau"
+icon: "fab fa-python"
+---
+
 ## Data structures
 ### Lists vs Tuples
 Les *Lists* sont des sequences de donnees **homogenes** et **mutables**
