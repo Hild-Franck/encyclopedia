@@ -5,7 +5,7 @@ layout: default
 <div id="navigation">
 	<a href="/encyclopedia">Index</a>
 	{% if page.parent %}
-		<span> < </span><a href="/encyclopedia/{{ page.parent }}"></a>
+		<span> < </span><a href="/encyclopedia/{{ page.parent }}">{{ page.parent }}</a>
 	{% endif %}
 </div>
 
