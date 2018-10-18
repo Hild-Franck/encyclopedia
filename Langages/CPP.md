@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "C++"
+parent: Langages
 description: "Langage de programmation compile permettant de coder en procedural ou oriente objet"
 icon: "fas fa-code"
 ---

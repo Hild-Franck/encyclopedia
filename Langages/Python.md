@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Python"
+parent: Langages
 description: "Langage de programmation oriente objet interprete. Il offre entre autre un typage dynamique fort et des outils de haut niveau"
 icon: "fab fa-python"
 ---

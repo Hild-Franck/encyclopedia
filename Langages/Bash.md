@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Bash script"
+parent: Langages
 description: "Serie de commandes executees dans un shell"
 icon: "fas fa-terminal"
 ---

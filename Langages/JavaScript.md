@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "JavaScript"
+parent: Langages
 description: "Langage de programmation oriente objet a prototype utilise dans les pages webs et les serveurs"
 icon: "fab fa-js-square"
 ---
