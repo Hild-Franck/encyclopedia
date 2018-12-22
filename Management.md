@@ -125,6 +125,12 @@ Le ***leadership*** correspond au **savoir-etre** et repond a la question *"pour
     + reconnaitre les talents et le potentiel de l'autre
     + respecter l'autre
 
+## La vision d'entreprise
+
+Une **vision d'entreprise** est un univers auquel les individus peuvent s'identifier en les impliquant dans **une perspective plus large sur le long terme**.
+
+Dans une vision (d'entreprise), chacun possede **une ambition**, qui est la palce qu'il y souhaite occuper. On etablit **une strategie**, qui permet de cerner les ressources et methodes dont on a besoin pour atteindre la vision, ainsi que les contributions de chacun sous formes de **missions**
+
 ## Prince2
 
 Prince2 propose une bonne pratique de la gestion de projets.
