@@ -85,6 +85,52 @@ Pour cela, il faut créer des occasions d’échanges, afin d’identifier d’�
 
 Si cela échoue, il faut essayer de soumettre sa propre proposition, sans l’imposer ; ce sont les collaborateurs qui doivent se l’approprier.
 
+## Leadership
+
+### Ce qu'est le leadership
+
+On peut resume le leadership en plusieurs points :
+
+- communiquer une vision claire et enthousiasme du futur
+    + *etre pro-actif face aux chamgements*
+    + *augmenter l'agilite de l'entreprise*
+- favoriser l'[emergence de nouvelles idees](#faire-emerger-des-idees)
+    + *capitaliser sur les initiatives des collaborateurs*
+    + *miser sur le potentiel de chacun*
+- favoriser l'adhesion au projet
+    + developper la cooperation d'equipes qui se meconnaissent
+
+Le leadership englobe les capacites *techniques* qui sont les premieres a etre acquises. Il est possible d'avoir de grandes capacites techniques avec peu de leadership, et vice-versa.
+
+Le leader **inspire, motiver et suscite l'interet**. Il **donne du sens** et cherche a faire partager un **but commun** en le reliant aux motivations personnelles.
+
+Il doit posseder des qualites relationnelles et comprendre les motivations intrinseques des individus afin de **contribuer a la realisation individuelle** et favoriser l'estime de soit.
+
+### Differences entre Management et Leadership
+
+Le ***management*** correspond au **savoir-etre** et repond a la question *"comment faire ?"*. Il donne ainsi les moyens de parvenir aux objectifs, grace notamment a des **motivations externes** (recompenses et punitions)
+
+Le ***leadership*** correspond au **savoir-etre** et repond a la question *"pourquoi faire ?"*. Il permet de donner un sens aux actions, en elaborant une vision du futur par une **motivation interne** (en donnant envie de contribuer au projet)
+
+### Qualites du leader
+
+- **La determination** consiste en
+    + viser un objectif
+    + avancer en accord avec ses valeurs
+- **L'authenticite** consiste en
+    + vivre ce que l'on croit
+    + etre en accord avec ses valeurs
+    + etre integre et inspirer un climat de confiance
+- **La consideration** consiste en
+    + reconnaitre les talents et le potentiel de l'autre
+    + respecter l'autre
+
+## La vision d'entreprise
+
+Une **vision d'entreprise** est un univers auquel les individus peuvent s'identifier en les impliquant dans **une perspective plus large sur le long terme**.
+
+Dans une vision (d'entreprise), chacun possede **une ambition**, qui est la palce qu'il y souhaite occuper. On etablit **une strategie**, qui permet de cerner les ressources et methodes dont on a besoin pour atteindre la vision, ainsi que les contributions de chacun sous formes de **missions**
+
 ## Prince2
 
 Prince2 propose une bonne pratique de la gestion de projets.
@@ -112,18 +158,3 @@ Prince2 comporte plusieurs benefices :
 - Affectation de ressources en Go/NoGo
 - Structure complete et condensee des rapports
 - Limite les reunions
-
-### Business Case (Cas d'affaire)
-
-Permet de juger si un projet est *souhaitable*, *viable* et *realisable* et fournit une *justification* a l'investissement continue qui y est fournit
-
-#### Purpose
-
-#### Content
-
-##### Reasons
-
-Les raisons qui ont pousse entreprendre le le projet. On y explique egalement en quoi le projet s'inscrit dans la strategie et les objectifs de l'entreprise.
-Pas besoin de fournir des informations detaillees ou des graphiques.
-
-##### Options
