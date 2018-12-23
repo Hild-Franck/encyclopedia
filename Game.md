@@ -1,4 +1,10 @@
-# Game  :video_game:
+---
+layout: post
+title: Game
+description: "Concepts et astuce en game dev, game design etc..."
+icon: "fas fa-gamepad"
+---
+
 ## SDL
 La Simple DirectMedia Layer (SDL) est une bibliothèque multimédia écrite en C.
 
@@ -36,7 +42,9 @@ Convertit une surface au format et couleur du video framebuffer, afin de pouvoir
 
 > **Return:** La nouvelle **SDL_Surface** ou **NULL**
 
+{: .note}
 > **Notes:**
+>
 > - Il faut avoir appelé **SDL_Init** avant d’appeler **SDL_DisplayFormat**
 > - Il faut utiliser une surface différente pour stocker la nouvelle surface, car sinon l’ancienne n’est pas libérée en mémoire et conduit à une memory leak.
 
@@ -48,26 +56,33 @@ Initialise des sous-systèmes de SDL.
 #### SDL_Quit()
 Clean tout les sous-systèmes initialisés.
 
+{: .note}
 > **Note:**
-> C’est une bonne idée d’utiliser cette fonction avec `atexit()` pour être sur qu’elle soit appeler dès que l’application se ferme.
+>
+> - C’est une bonne idée d’utiliser cette fonction avec `atexit()` pour être sur qu’elle soit appeler dès que l’application se ferme.
 
 #### SDL_SetVideoMode(int width, int height, int bpp, Uint32 flags)
 
-> **Attention:**
-> Cette fonction n’est plus utile dans SDL 2, on lui préfère **SDL_CreateWindow**.
+{: .warning}
+> **Warning:**
+>
+> - Cette fonction n’est plus utile dans SDL 2, on lui préfère **SDL_CreateWindow**.
 
 - *width:* largeur de la fenêtre d’affichage
 - *height:* hauteur de la fenêtre d’affichage
 - *bpp:* bit-per-pixel
 - *flags:* ensemble d’options diverses
+
 Definit le mode video de l’affichage
 
 > **Return:** La **SDL_Surface** du framebuffer ou **NULL**
 
 #### SDL_WM_SetCaption(const char *title, const char *iconPath)
 
-> **Attention:**
-> Cette fonction n’est plus utile dans SDL 2, on définit le titre dans **SDL_CreateWindow**.
+{: .warning}
+> **Warning:**
+>
+> - Cette fonction n’est plus utile dans SDL 2, on définit le titre dans **SDL_CreateWindow**.
 
 - *title:* titre de la fenêtre
 - *iconPath:* chemin vers le fichier image de l’icône.
@@ -80,11 +95,19 @@ Le webGL est un standard permettant d’utiliser openGL grâce au canvas de HTML
 ### Definitions
 #### Vertex Shader
 Programme qui est appele pour chaque vertice
-> **Exemple:** *Appelé 4 fois pour un carré*
+
+{: .exemple}
+> **Exemple:**
+>
+> - *Appelé 4 fois pour un carré*
 
 #### Fragment Shader
 Programme appele une fois par pixel
-> **Exemple:** *Appelé 10000 pour un canvas de 100x100 px*
+
+{: .exemple}
+> **Exemple:**
+>
+> - *Appelé 10000 pour un canvas de 100x100 px*
 
 ### API
 #### clearColor(*r, g, b, a*)
@@ -122,8 +145,10 @@ Crée le data store de l’objet du buffer en y chargeant les datas
 
 Attache un shader a un programme
 
+{: .note}
 > **Note:**
-> Apres avoir attacher les shaders, il faut les lier avec la methode **linkProgram**
+>
+> - Apres avoir attacher les shaders, il faut les lier avec la methode **linkProgram**
 
 #### linkProgram(*program*)
 - *program:* le programme sur lequel on veut link des shaders.
@@ -136,8 +161,10 @@ Recherche un attribut dans un programme
 
 > **Return:** L’index de l’attribut en int long ou -1 si il n’est pas trouvé.
 
+{: .note}
 > **Note:**
-> Les attributs sont définis dans les shaders
+>
+> - Les attributs sont définis dans les shaders
 
 #### vertexAttribPointer(*index, size, type, normalized, stride, offset*)
 - *index:*
@@ -146,3 +173,9 @@ Recherche un attribut dans un programme
 - *normalized:*
 - *stride:*
 - *offset:*
+
+## GLSL
+
+### Keywords
+
+- ***uniform:*** permet de definir une variable dont la valeur reste la meme pour chaque point.
