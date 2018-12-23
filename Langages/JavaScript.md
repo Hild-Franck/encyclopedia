@@ -15,29 +15,29 @@ Il existe plusieurs facons de creer des fonctions en JS.
 - ***Function Declaration:*** La declaration de fonction permet de creer une fonction nommee sans l'assignee a une varaible. Les declarations de fonctions sont **hoisted**, c'est a dire que l'interpreteur les traitent avant le reste du code **dans leur scope**.
 
 {: .exemple}
-    > **Exemple:**
-    > ```js
-    > console.log(poulet) // Ecrit "Function" dans la console
-    > poulet(); // Ecrit "poulet" dans la console
-    > function poulet() { console.log('poulet'); }
-    > ```
+> **Exemple:**
+> ```js
+> console.log(poulet) // Ecrit "Function" dans la console
+> poulet(); // Ecrit "poulet" dans la console
+> function poulet() { console.log('poulet'); }
+> ```
 
 - ***Function Expression:*** L'expression d'une fonction consiste a stockee la fonction (nommee ou anonyme) dans une variable. Dans ce cas, si la declaration de la variable est *hoisted*, ce n'est pas le cas de la definition de la fonction.
 
 {: .exemple}
-  > **Exemple:**
-  >
-  > ```js
-  > console.log(poulet) // Ecrit "undefined" dans la console
-  > const poulet = function() { console.log('poulet'); }
-  > console.log(poulet) // Ecrit "Function" dans la console
-  > poulet(); // Ecrit "poulet" dans la console
-  > ```
+> **Exemple:**
+>
+> ```js
+> console.log(poulet) // Ecrit "undefined" dans la console
+> const poulet = function() { console.log('poulet'); }
+> console.log(poulet) // Ecrit "Function" dans la console
+> poulet(); // Ecrit "poulet" dans la console
+> ```
 
 {: .note}
-  > **Note:**
-  >
-  > - Une *function expression* peut etre invoquee immediatement
+> **Note:**
+>
+> - Une *function expression* peut etre invoquee immediatement
 
 #### Invoquer une fonction immediatement
 
