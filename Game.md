@@ -173,3 +173,9 @@ Recherche un attribut dans un programme
 - *normalized:*
 - *stride:*
 - *offset:*
+
+## GLSL
+
+### Keywords
+
+- ***uniform:*** permet de definir une variable dont la valeur reste la meme pour chaque point.
