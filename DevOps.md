@@ -1,4 +1,9 @@
-# DevOps :construction_worker:
-- **[Docker][docker]** :whale:
-
-[docker]: https://github.com/Hild-Franck/encyclopedia/blob/master/DevOps/Docker.md
+---
+layout: section-index
+title: DevOps
+icon: "fas fa-cloud-upload-alt"
+summary:
+    - name: Docker
+      icon: "fab fa-docker"
+      link: DevOps/Docker
+---
