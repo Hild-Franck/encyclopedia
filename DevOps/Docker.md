@@ -192,6 +192,8 @@ Pour la modification soit prise en compte par Docker, il faut restart le service
 
 ## Swarm
 
+### Update des services
+
 Lors d'un update d'un service, si la configuration du service reste la meme, le service ne sera pas reload. Pour cela, il faut rajouter l'option `-f`. Dans ce cas, le container sera relance !
 
 {: .exemple}
@@ -200,3 +202,17 @@ Lors d'un update d'un service, si la configuration du service reste la meme, le 
 > ```bash
 > docker service update -f myService
 > ```
+
+Il est egalement possible de changer la version ou l'application d'un service grace a l'option `--image`
+
+{: .exemple}
+> **Exemple:**
+>
+> ```bash
+> docker service update --image "<image-name>:<version>" myServiceName
+> ```
+
+{: .warning}
+> **Warning:**
+>
+> - Changer d'image a pour effet de redemarrer les instances du service.
