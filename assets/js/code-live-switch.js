@@ -5,7 +5,7 @@ if (liveCodeSVGs) {
 		const sibling = svg.nextElementSibling
 		svg.addEventListener("click", () => {
 			svg.style.display = "none"
-			sibling.style.display = "initial"
+			sibling.style.display = "block"
 		})
 		sibling.addEventListener("click", () => {
 			sibling.style.display = "none"
