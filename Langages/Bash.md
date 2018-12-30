@@ -34,7 +34,10 @@ Les conditions commencent toutes par un if et finissent par un fi. Chaque bloc d
 #### One liner
 Il est possible d'ecrire les conditions en plus "condensees" en mettant un `;` apres la condition et en faisant suivre le then. On peut alors soir ecrire la ou les intructions du bloc d'instruction a la ligne ou bien toujours sur la meme ligne en les separant avec des `;`.
 
-{: .exemple}
+{: .exemple .live-code}
+![Live-Code](/assets/img/bash-test.svg)
+
+{: .exemple .code-exemple}
 > **Exemple:**
 > 
 > ```bash
