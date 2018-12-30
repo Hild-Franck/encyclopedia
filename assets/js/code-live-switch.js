@@ -1,4 +1,4 @@
-const liveCodeSVGs = document.querySelectorAll("img.live-code")
+const liveCodeSVGs = document.querySelectorAll(".live-code")
 
 if (liveCodeSVGs) {
 	liveCodeSVGs.forEach(svg => {
@@ -9,7 +9,7 @@ if (liveCodeSVGs) {
 		})
 		sibling.addEventListener("click", () => {
 			sibling.style.display = "none"
-			svg.style.display = "initial"
+			svg.style.display = "block"
 		})
 	})
 }
