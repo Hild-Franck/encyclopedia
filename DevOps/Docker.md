@@ -192,6 +192,32 @@ Pour la modification soit prise en compte par Docker, il faut restart le service
 
 ## Swarm
 
+**Docker Swarm** permet de faire tourner des containers sur differents hosts, orchestres et plannifies par un plusieurs managers. Le Swarm permet donc d'implementer **la scalabilite** et **la tolerance de panne** a Docker
+
+### Managers
+
+Les managers sont les nodes du Swarm qui prennent les decisions dans le management de celui-ci. Parmis les managers est elu un **leader** qui prend les decisions et les fait approuver par les autres via **un consensus distribue assure par l'algorithme Raft**.
+
+#### Leader
+
+Pour determiner un leader dans un pool de manager sans leader, chaque manager demarre un timer d'une duree aleatoire.
+
+Lorsque leur timer est fini, chaque manager envoie une requete aux autres. Le premier manager a recevoir une reponse de validation de **chaque** managers est elu leader.
+
+Une fois elu, le leader envoi periodiquement des notifications aux autres managers pour leur signifier qu'il est toujours up et leader.
+
+Si les managers ne recoivent plus de notification du leader pendant un certain temps, ils procedent a une nouvelle election.
+
+Chaque manager a une copy de la bdd raft contenant l'etat du cluster.
+Lors d'une decision, le leader envoie sa decision aux managers, et si la majorite des reponses sont positives, les bdd raft de chaque manager est update.
+
+#### Nombre de managers
+
+Pour un quorum de N, la majotite se fait a: floor(N+1 / 2)
+Il est conseille de choisir une nombre impair, car si le reseau se segmente en deux, il y aura toujours un des deux networks qui aura assez de manager pour survivre
+
+Mais si un cluster fail, les worker nodes fonctionnent toujours et continuent de fonctionner. Il n'est juste plus possible de modifier le cluster. Pour reparer la situation, il suffit de re-up les managers ou de forcer un nouveau cluster a partir de la machine d'un ancien manager, puisqu'il a conserve les data du swarm.
+
 ### Update des services
 
 Lors d'un update d'un service, si la configuration du service reste la meme, le service ne sera pas reload. Pour cela, il faut rajouter l'option `-f`. Dans ce cas, le container sera relance !
