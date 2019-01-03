@@ -27,7 +27,7 @@ Les conditions commencent toutes par un if et finissent par un fi. Chaque bloc d
 >
 > ![Demo-Code]({{ site.baseurl }}/assets/img/bash-cond-long-synth.svg)
 
-{. exemple .code-exemple}
+{: .exemple .code-exemple}
 > **Exemple:**
 >
 > ```bash
