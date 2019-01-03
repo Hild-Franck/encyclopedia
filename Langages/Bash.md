@@ -22,7 +22,12 @@ Le `[[ ... ]]` est la version la plus recente et intuitive, mais non compatible 
 
 Les conditions commencent toutes par un if et finissent par un fi. Chaque bloc d'instruction commence par un then.
 
-{. exemple}
+{: .exemple .live-code}
+> **Exemple:** *Click to switch to wrote code*
+>
+> ![Demo-Code]({{ site.baseurl }}/assets/img/bash-cond-long-synth.svg)
+
+{. exemple .code-exemple}
 > **Exemple:**
 >
 > ```bash
@@ -43,7 +48,7 @@ Il est possible d'ecrire les conditions en plus "condensees" en mettant un `;` a
 {: .exemple .live-code}
 > **Exemple:** *Click to switch to wrote code*
 >
-> ![Live-Code]({{ site.baseurl }}/assets/img/bash-test.svg)
+> ![Live-Code]({{ site.baseurl }}/assets/img/bash-cond-short-synth.svg)
 
 {: .exemple .code-exemple}
 > **Exemple:** *Click to switch to recorded code session*
