@@ -73,5 +73,9 @@
 }
 
 .live-code {
-	cursor: pointer
+	cursor: pointer;
+
+	& img {
+		max-width: 100%;
+	}
 }
