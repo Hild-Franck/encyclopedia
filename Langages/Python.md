@@ -57,6 +57,7 @@ Defini l'action a effectuer lorsque l'argument est appele.
 
 - **store:** Attribue la valeur passee a l'argument a une variable.
 
+{: .exemple}
 > **Exemple:**
 > ```python
 > """ test.py """
@@ -68,7 +69,13 @@ Defini l'action a effectuer lorsque l'argument est appele.
 
 - **append:** Attribue dans une liste les valeurs passees a chaque appel de cet argument dans une variable.
 
-> **Exemple:**
+{: .exemple .live-code}
+> **Exemple:** *Click to switch to wrote code*
+>
+> ![Demo-Code]({{ site.baseurl }}/assets/img/python-parser.svg)
+
+{: .exemple .code-exemple}
+> **Exemple:** *Click to switch to recorded code session*
 > ```python
 > """ test.py """
 > ...
