@@ -192,6 +192,98 @@ Pour la modification soit prise en compte par Docker, il faut restart le service
 
 ## Swarm
 
+**Docker Swarm** permet de faire tourner des containers sur differents hosts, orchestres et plannifies par un plusieurs managers. Le Swarm permet donc d'implementer **la scalabilite** et **la tolerance de panne** a Docker
+
+### Managers
+
+Les managers sont les nodes du Swarm qui prennent les decisions dans le management de celui-ci. Parmis les managers est elu un **leader** qui prend les decisions et les fait approuver par les autres via **un consensus distribue assure par l'algorithme Raft**.
+
+#### Leader
+
+Pour determiner un leader dans un pool de manager sans leader, chaque manager demarre un timer d'une duree aleatoire.
+
+Lorsque leur timer est fini, chaque manager envoie une requete aux autres. Le premier manager a recevoir une reponse de validation de **chaque** managers est elu leader.
+
+Une fois elu, le leader envoi periodiquement des notifications aux autres managers pour leur signifier qu'il est toujours up et leader.
+
+Si les managers ne recoivent plus de notification du leader pendant un certain temps, ils procedent a une nouvelle election.
+
+Chaque manager a une copy de la bdd raft contenant l'etat du cluster.
+Lors d'une decision, le leader envoie sa decision aux managers, et si la majorite des reponses sont positives, les bdd raft de chaque manager est update.
+
+#### Nombre de managers
+
+Pour un quorum de N, la majotite se fait a: floor(N+1 / 2)
+Il est conseille de choisir une nombre impair, car si le reseau se segmente en deux, il y aura toujours un des deux networks qui aura assez de manager pour survivre
+
+Mais si un cluster fail, les worker nodes fonctionnent toujours et continuent de fonctionner. Il n'est juste plus possible de modifier le cluster. Pour reparer la situation, il suffit de re-up les managers ou de forcer un nouveau cluster a partir de la machine d'un ancien manager, puisqu'il a conserve les data du swarm.
+
+### Creation d'un swarm
+
+On peut creer un swarm grace a la commande :
+
+```bash
+docker swarm init
+```
+
+L'hote sur lequel est execute cette commande devient alors un manager *leader* d'un swarm a un node (lui-meme)
+
+{: .notes}
+> **Notes:**
+>
+> - Cette commande echouera si l'hote sur lequel elle est executee possede **plus d'une** interface reseau. Dans ce cas, il faut absolument preciser quelle interface utilisee grace a l'option `--advertise-addr`
+> - L'output de cette commande contient la commande permettant d'ajouter un worker au swarm
+
+{: .exemple}
+> **Exemple:**
+>
+> ![Demo]({{ site.baseurl }}/assets/img/docker-swarm-creation.svg)
+
+### Management des nodes
+
+#### Ajouter un node
+
+Il est possible d'ajouter un node en tant que manager ou worker en executant la commande `docker swarm join-token manager` ou `docker swarm join-token worker` dans un master et en copiant-collant son output dans le nouvel hote.
+
+{: .note}
+> **Note:**
+>
+> - Il est egalement possible de promouvoir un worker en master grace a la commande `docker node promote <node_name>` dans un master
+
+{: .exemple}
+> **Exemple:**
+>
+> ![Demo]({{ site.baseurl }}/assets/img/docker-swarm-add-node.svg)
+
+#### Lister les nodes
+
+Sur le master, la commande `docker node ls` permet de visualiser le worker et le master actuellement dans le node.
+
+La presence d'un asterisque permet d'identifier le serveur sur lequel on se trouve. Les nodes dont le champs **MANAGER STATUS** est vide est obligatoirement un worker.
+
+{: .exemple}
+> **Exemple:**
+>
+> ![Demo]({{ site.baseurl }}/assets/img/docker-swarm-list-nodes.svg)
+
+#### Enlever un worker
+
+Pour enlever un node du swarm, il suffit de:
+
+1. executer la commande `docker swarm leave` sur le worker
+2. executer la commande `docker node rm <node_name>` sur un manager
+
+{: .warning}
+> **Warning:**
+>
+> - Avant d'executer la seconde commande, il faut attendre que le status du node dans `docker node ls` devienne *Down*. Cela peut prendre du temps.
+> - Si c'est un master qu'il faut retirer, il faut d'abord le *demote* grace a la commande `docker node demote <node_name>` executee sur un master.
+
+{: .exemple}
+> **Exemple:**
+>
+> ![Demo]({{ site.baseurl }}/assets/img/docker-swarm-remove-node.svg)
+
 ### Update des services
 
 Lors d'un update d'un service, si la configuration du service reste la meme, le service ne sera pas reload. Pour cela, il faut rajouter l'option `-f`. Dans ce cas, le container sera relance !
