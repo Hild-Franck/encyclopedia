@@ -228,7 +228,7 @@ docker swarm init
 
 L'hote sur lequel est execute cette commande devient alors un manager *leader* d'un swarm a un node (lui-meme)
 
-{: .notes}
+{: .note}
 > **Notes:**
 >
 > - Cette commande echouera si l'hote sur lequel elle est executee possede **plus d'une** interface reseau. Dans ce cas, il faut absolument preciser quelle interface utilisee grace a l'option `--advertise-addr`
