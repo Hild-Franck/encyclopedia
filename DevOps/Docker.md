@@ -213,10 +213,27 @@ Lors d'une decision, le leader envoie sa decision aux managers, et si la majorit
 
 #### Nombre de managers
 
-Pour un quorum de N, la majotite se fait a: floor(N+1 / 2)
+Pour un nombre de manager N, la majorite, appelee ***quorum*** se fait a: `floor(N+1 / 2)`
 Il est conseille de choisir une nombre impair, car si le reseau se segmente en deux, il y aura toujours un des deux networks qui aura assez de manager pour survivre
 
 Mais si un cluster fail, les worker nodes fonctionnent toujours et continuent de fonctionner. Il n'est juste plus possible de modifier le cluster. Pour reparer la situation, il suffit de re-up les managers ou de forcer un nouveau cluster a partir de la machine d'un ancien manager, puisqu'il a conserve les data du swarm.
+
+#### Perte du quorum
+
+Lorsque la majorite des managers deviennent *Unreachable*, il y a **perte du quorum**. Les commandes de management du swarm deviennent alors impossibles et renvoient une erreur.
+
+Il existe deux solutions pour palier a ce probleme :
+
+- remettre en route un master *Unreachable*
+- forcer la creation d'un nouveau cluster sur l'un des master encore *Reachable* grace a la commande `docker swarm init --force-new-cluster --advertise-addr <ip>`
+
+> **Note:**
+>
+> - Les services et nodes du precedents cluster seront conserves. Un quorum sera simplement recree avec les masters reachable (ou en tant que single-master quorum si un seul master a survecu)
+
+> **Exemple:**
+>
+> ![Demo]({{ site.baseurl }}/assets/img/docker-swarm-quorum-loss.svg)
 
 ### Creation d'un swarm
 
@@ -246,9 +263,10 @@ L'hote sur lequel est execute cette commande devient alors un manager *leader* d
 Il est possible d'ajouter un node en tant que manager ou worker en executant la commande `docker swarm join-token manager` ou `docker swarm join-token worker` dans un master et en copiant-collant son output dans le nouvel hote.
 
 {: .note}
-> **Note:**
+> **Notes:**
 >
 > - Il est egalement possible de promouvoir un worker en master grace a la commande `docker node promote <node_name>` dans un master
+> - Il est possible d'ajouter l'option `-q` a la commande `docker swarm join-token` pour que seul le token soit renvoye en output.
 
 {: .exemple}
 > **Exemple:**
@@ -284,7 +302,9 @@ Pour enlever un node du swarm, il suffit de:
 >
 > ![Demo]({{ site.baseurl }}/assets/img/docker-swarm-remove-node.svg)
 
-### Update des services
+### Docker Service
+
+#### Update des services
 
 Lors d'un update d'un service, si la configuration du service reste la meme, le service ne sera pas reload. Pour cela, il faut rajouter l'option `-f`. Dans ce cas, le container sera relance !
 
