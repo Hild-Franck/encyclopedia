@@ -227,10 +227,12 @@ Il existe deux solutions pour palier a ce probleme :
 - remettre en route un master *Unreachable*
 - forcer la creation d'un nouveau cluster sur l'un des master encore *Reachable* grace a la commande `docker swarm init --force-new-cluster --advertise-addr <ip>`
 
+{: .note}
 > **Note:**
 >
 > - Les services et nodes du precedents cluster seront conserves. Un quorum sera simplement recree avec les masters reachable (ou en tant que single-master quorum si un seul master a survecu)
 
+{: .exemple}
 > **Exemple:**
 >
 > ![Demo]({{ site.baseurl }}/assets/img/docker-swarm-quorum-loss.svg)
