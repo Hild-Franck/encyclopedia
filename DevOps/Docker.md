@@ -306,6 +306,30 @@ Pour enlever un node du swarm, il suffit de:
 
 ### Docker Service
 
+Les services sont les applications lancees dans un swarm.
+Lorsqu'on cree un service, **l'orchestrator** decide du nombre de taches a creer, et **le scheduler** decide du nombre de tache a lancer sur chaque worker. **Une tache** est *UNE* instance du service.
+
+#### Fonctionnement des services
+
+Les services se repartissent sur les workers *ET* les managers. Ce sont les managers qui font en sortent que le bon nombre d'instances sont lancees en temps reel, et ils recreent des taches si un node ou une tache vient a faillir.
+
+{: .note}
+> **Note:**
+>
+> - Pour empecher les taches de se repartir sur les managers, qui ont deja la charge de faire fonctionner le swarm, il faut les faire passer au statut **DRAIN** grace a la commande `docker node update --availability drain <manager_name>`
+
+Lors de la creation d'un service, il y a plusieurs facons de gerer son nombre d'instances :
+
+- **replicas:** Le nombre d'instances est specifie dans l'option `--replicas`
+- **global:** Le nombre d'instances est fixe a *un par node*.
+
+Lorsque le nombre d'instance est determine via **replicas**, il est possible *d'update le nombre d'instances* via la commande `docker service update --replicas=<instance_number> <service_name>`
+
+{: .note}
+> **Note:**
+>
+> - Le nom des servies est aleatoire, a moins d'ajouter l'option `--name` lors de la creation du service.
+
 #### Update des services
 
 Lors d'un update d'un service, si la configuration du service reste la meme, le service ne sera pas reload. Pour cela, il faut rajouter l'option `-f`. Dans ce cas, le container sera relance !
@@ -330,3 +354,34 @@ Il est egalement possible de changer la version ou l'application d'un service gr
 > **Warning:**
 >
 > - Changer d'image a pour effet de redemarrer les instances du service.
+
+### Networking
+
+Il y a trois principaux types de networks fournis par Docker :
+
+- **bridge:** reseau prive interne. Reseau par defaut sur l'interface docker0 (souvent 172.17.0.0).
+- **host:** directement sur le reseau du host
+- **none:** pas de network, pas acces reseau
+
+{: .warning}
+> **Warning:**
+>
+> - Sur un reseau host, chaque container doit avoir un port different, puisqu'il n'y a pas de mapping *container:host*
+
+Lorsqu'on lance des containers sur differents serveur, il n'est pas possible pour ces derniers de communiquer entre eux a moins de manuellement mettre en place un routing.
+
+Pour palier a ce probleme, il existe le reseau ***overlay***, utilise dans les clusters swarm. Ce reseau est un reseau prive partage par tous les nodes du cluster.
+
+{: .note}
+> **Note:**
+>
+> - Docker possede un serveur DNS embarque qui permet l'acces inter-container via le nom des container au lieu de l'ip du container (dans un reseau host par exemple)
+
+#### Networking dans le Swarm
+
+Le Swarm peut etre considere comme un cas particulier car le principe est de faire tourner plusieurs instances d'un meme service sur plusieurs hotes. Docker Swarm cree automatiquement un reseau **ingress**  qui s'occupe de loadbalancer les requetes entrantes entre les instances du service que l'on essait de contacter.
+
+{: .note}
+> **Note:**
+>
+> - Il est possible de contacter un service depuis n'importe quel node du swarm, meme si ce dernier ne possede pas d'instance du service. Le reseau ingress se charge de tout.
