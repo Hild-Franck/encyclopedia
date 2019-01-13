@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
+.blockquote {
+	padding: 1px 15px 1px 20px !important;
+}
+
 .warning {
 	color: #c0392b !important;
 	border-color: #c0392b !important;
@@ -78,4 +82,8 @@
 	& img {
 		max-width: 100%;
 	}
+}
+
+.highlight {
+	margin-bottom: 15px !important;
 }
