@@ -3,6 +3,28 @@
 
 @import "{{ site.theme }}";
 
+ol {
+	margin-right: 1.5em;
+	counter-reset: item;
+
+	& > li {
+		margin: 0;
+		padding-right: 2em;
+		text-indent: -2em;
+		list-style-type: none;
+		counter-increment: item;
+
+		&:before {
+			display: inline-block;
+			width: 1em;
+			padding-right: 0.5em;
+			font-weight: bold;
+			text-align: right;
+			content: counter(item) ".";
+		}
+	}
+}
+
 blockquote {
 	padding: 1px 15px 1px 20px !important;
 }
