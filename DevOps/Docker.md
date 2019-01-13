@@ -10,12 +10,12 @@ icon: "fab fa-docker"
 
 ## Fonctionnement
 
-Docker fonctionne sur un modèle client/serveur :
+Docker fonctionne sur un modèle *client-serveur* :
 
-- **client:** a un rôle de communication, il dit au serveur quoi faire
-- **serveur:** a un rôle de host, il run et manage les containers
+- **client:** a un rôle de communication, il dit au serveur quoi faire.
+- **serveur:** a un rôle de host, il run et manage **les containers**.
 
-Un client peut s'adresser à n’importe quel nombre de serveur qu’il le souhaite, pour un bonne et simple raison ; ils possèdent tous deux le même binary.
+Un client peut s'adresser à *n’importe quel nombre de serveurs qui le souhaitent*, pour une bonne et simple raison ; ils possèdent tous deux le même binary.
 
 Pour qu’un serveur Docker écoute les connections entrantes, il suffit de le lancer avec le flag `-d` :
 
@@ -26,22 +26,22 @@ docker -d
 {: .note}
 > **Note:**
 >
-> - *Une daemon est un processus qui s'execute en arriere plan*
+> - **Un daemon** est un processus qui *s'exécute en arriere plan*.
 
-On peut donc en venir à la question suivante ; comment s’effectue la communication client/serveur ?
+On peut donc en venir à la question suivante : comment s’effectue la communication client-serveur ?
 
-## Communication client / serveur
+## Communication client-serveur
 
 Il existe deux cas :
 
-- Le client et le serveur sont sur la même machine, on utilise alors un socket Unix, nommé `docker.sock`.
+1. Le client et le serveur sont sur la même machine, on utilise alors un **socket Unix**, nommé `docker.sock`.
 
-{: .note}
-> **Note:**
->
-> - *Un socket Unix permet de partager des données entre deux processus Unix via le système de fichier (plus particulièrement grâce à un fichier `*.sock`)*
+    {: .note}
+    > **Note:**
+    >
+    > + Un socket Unix permet de partager des données entre deux processus Unix via le système de fichier (plus particulièrement grâce à un fichier `*.sock`)
 
-- Le serveur est sur une machine distante, on utilise un socket TCP pour y accéder. Le port par défaut est le 2375, ou le 2346 pour du encrypted.
+2. Le serveur est sur une machine distante, on utilise un **socket TCP** pour y accéder. Le port par défaut est le 2375, ou le 2346 pour du encrypted.
 
 Pour faciliter la communication avec un serveur Docker, le deamon possède une API. De même, le networking de Docker est un bridge par l’interface Docker.
 
@@ -53,49 +53,52 @@ docker -d --net host
 
 ## Qu'est ce que Docker
 
-Docker n’est pas une Virtual Machine ; c’est un wrapper autour d’un process Unix. Il est donc extrêmement léger, et peu servir pour une tâche éphémère, c’est à dire démarrer un Docker, faire une courte exécution et s'éteindre. Il est d’ailleurs d’usage de faire en sorte que les applications exécutées dans un Docker soient stateless ; les data sont conservées de manière externes.
+*Docker n’est pas une Virtual Machine*, c’est un wrapper autour d’un **process Unix**. Il est donc extrêmement léger, et peut servir pour une tâche éphémère, c’est à dire démarrer un container, faire une courte exécution et s'éteindre. Il est d’ailleurs d’usage de faire en sorte que les applications exécutées dans un container soient **stateless** ; les data doivent être conservées de manière externes.
 
-Docker utilise les ressources du host, donc plusieurs containers sur une même machine entrent en compétition pour l’acquisition des ressources du host ; cela veut dire aussi que les containers utilisent le même kernel que l’host, ce qui peut induire des failles de sécurités.
+*Docker utilise les ressources du host*, donc plusieurs containers sur une même machine entrent en compétition pour l’acquisition de ses ressources ; cela veut dire aussi que les containers utilisent le même kernel que l’host, ce qui peut induire des failles de sécurités.
 
-Comme dit précédemment, les applications sont supposées être stateless et peuvent se lancer et s'éteindre en un instant. On veut donc souvent qu’elle ai la même configuration a chaque demarrage. On parvient à faire cela grâce aux variables d’environnements.
+Comme dit précédemment, les applications sont supposées être stateless et peuvent se lancer et s'éteindre en un instant. On veut donc souvent qu’elles aient la même configuration a chaque demarrage. On parvient à faire cela grâce aux variables d’environnements.
 
-Il est également possible de sauver des data dans le file system, mais cette pratique est déconseillée pour de nombreuse raisons :
+Il est également possible de sauver des data dans **le filesystem** (fs), mais cette pratique est déconseillée pour de nombreuse raisons :
 
 - Peu de performance
 - Peu de place
-- Le state n’est pas conservé a chaque redémarrage
+- Le state *n’est pas conservé* à chaque redémarrage
 - Le container dépend du host (et de son fs) et n’est donc plus scalable
 
 ## Images Docker
 
-Une image Docker est une pile de couche de *filesystem*. Chaque instruction permettant de construire une telle image genere une nouvelle couche, dependante de celle qui la precede. Ces couches pouvant etre reutilise entre differentes images, cela permet de sauver du space disk et du reseau.
+**Une image Docker** est une pile de couche de filesystem. Chaque instruction permettant de construire une telle image génère une nouvelle couche, dépendante de celle qui la précède. *Ces couches pouvant être reutilisées entre différentes images*, cela permet de sauver de l'espace disque et du réseau.
 
 {: .note}
 > **Note:**
 >
-> - Ce systeme de *layers*, couple aux *tags* qu'il est possible de , permet de faire du *Revision Control*.
+> - Ce système de **layers**, couplé aux **tags**, permet de faire du **Revision Control**.
 
 ### Build une image Docker
 
 #### Dockerfile
 
-Afin de creer une image Docker, on decrit chaque layer grace a une instruction dans le fichier `Dockerfile`. Chaque instruction genere un layer, sauvegarde par Docker lors du build. Un layer peut etre reutilise par une autre image si les instructions consecutives sont les memes *en partant de la premiere instruction*.
+Afin de créer une image Docker, on décrit chaque layer grâce à une instruction dans le fichier `Dockerfile`. *Chaque instruction génère un layer*, sauvegardé par Docker lors du build. Un layer peut être réutilisé par une autre image si les instructions **consécutives** sont les mêmes *en partant de la premiere instruction*.
 
-**Exemple 1:** *Utilisation des layers build par l'image 1 par l'image 2 pour les instructions consecutives a partir de la premiere instruction*
-
-| Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
-|:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
-| **FROM** ubuntu | Layer A | Building | **FROM** ubuntu | Layer A | Using cache |
-| **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer B | Using cache |
-| **RUN** echo "b" | Layer C | Building | **RUN** echo "poulet" | Layer Z | Building |
-
-**Exemple 2:** *L'image 2 n'utilise pas les layers build par l'image 1 car la premiere instruction est differente et chaque layer depend des layers qui le precede*
-
-| Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
-|:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
-| **FROM** ubuntu | Layer A | Building | **FROM** alpine | Layer Q | Building |
-| **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer R | Building |
-| **RUN** echo "b" | Layer C | Building | **RUN** echo "b" | Layer S | Building |
+{: .exemple}
+> **Exemples:**
+>
+> - Utilisation des layers build par l'image 1 par l'image 2 pour les instructions consécutives à partir de la première instruction
+>
+> | Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
+> |:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
+> | **FROM** ubuntu | Layer A | Building | **FROM** ubuntu | Layer A | Using cache |
+> | **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer B | Using cache |
+> | **RUN** echo "b" | Layer C | Building | **RUN** echo "poulet" | Layer Z | Building |
+>
+> - L'image 2 n'utilise pas les layers build par l'image 1 car *la première instruction est differente* et chaque layer dépend des layers qui le précède
+>
+>| Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
+>|:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
+>| **FROM** ubuntu | Layer A | Building | **FROM** alpine | Layer Q | Building |
+>| **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer R | Building |
+>| **RUN** echo "b" | Layer C | Building | **RUN** echo "b" | Layer S | Building |
 
 {: .note}
 > **Note:**
