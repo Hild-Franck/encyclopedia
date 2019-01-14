@@ -210,7 +210,7 @@ Une fois élu, *le leader envoi périodiquement des notifications aux autres man
 
 Si les managers ne recoivent plus de notification du leader pendant un certain temps, ils procèdent à *une nouvelle election*.
 
-Chaque manager a une copie de **la base de donnée1 raft** contenant **l'état du cluster**.
+Chaque manager a une copie de **la base de donnée raft** contenant **l'état du cluster**.
 Lors d'une décision, *le leader envoie sa décision aux managers*, et si la majorité des réponses sont positives, les base de données raft de chaque manager est mis a jour.
 
 #### Nombre de managers
