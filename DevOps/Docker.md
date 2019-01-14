@@ -84,7 +84,7 @@ Afin de créer une image Docker, on décrit chaque layer grâce à une instructi
 {: .exemple}
 > **Exemples:**
 >
-> - Utilisation des layers build par l'image 1 par l'image 2 pour les instructions consécutives à partir de la première instruction
+> - Utilisation des layers build par l'image 1 par l'image 2 pour les instructions consécutives à partir de la première instruction.
 >
 > | Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
 > |:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
@@ -92,7 +92,7 @@ Afin de créer une image Docker, on décrit chaque layer grâce à une instructi
 > | **RUN** echo "a" | Layer B | Building | **RUN** echo "a" | Layer B | Using cache |
 > | **RUN** echo "b" | Layer C | Building | **RUN** echo "poulet" | Layer Z | Building |
 >
-> - L'image 2 n'utilise pas les layers build par l'image 1 car *la première instruction est differente* et chaque layer dépend des layers qui le précède
+> - L'image 2 n'utilise pas les layers build par l'image 1 car *la première instruction est différente* et chaque layer dépend des layers qui le précède.
 >
 >| Instructions img 1 | Layer img 1 | Build | Instructions img 2 | Layer img 2 | Build |
 >|:------------------:|:-----------:|:-----:|:------------------:|:------------:|:-----:|
@@ -103,87 +103,86 @@ Afin de créer une image Docker, on décrit chaque layer grâce à une instructi
 {: .note}
 > **Note:**
 >
-> - Pour desactiver l'utilisation du cache lors du build, il suffit d'ajouter l'option `--nocache` a la commande `docker build`
+> - Pour désactiver l'utilisation du cache lors du build, il suffit d'ajouter l'option `--nocache` à la commande `docker build`
 
 ##### Instructions
 
 - **FROM** `image:tag`: image sur laquelle se base la nouvelle image
-- **MAINTAINER** `prenom nom <mail>`: informations pour contacter l'auteur du Dockerfile. Ces informations se retrouvent dans les metadata de l'image build.
-- **LABEL** `"key"="value"`: ajoute des informations dans les metadata de l'image pour identifier / rechercher des images. On peut voir les labels d'une image grace a la commande `docker inspect`
-- **USER** `username`: definit quel user va run les processes. Par defaut, cet user est `root`
+- **MAINTAINER** `prenom nom <mail>`: informations pour contacter l'auteur du Dockerfile. Ces informations se retrouvent dans **les metadatas** de l'image.
+- **LABEL** `"key"="value"`: ajoute des informations dans les metadatas de l'image pour identifier / rechercher des images. On peut voir les labels d'une image grâce à la commande `docker inspect`
+- **USER** `username`: définit quel user va run les process. Par defaut, cet user est `root`
 
 {: .warning}
 > **Warning:**
 >
-> - En production, il est conseille de run les processes avec un user *sans* privileges, pour des questions de securite.
+> - En production, il est conseillé de run les process avec *un utilisateur sans privileges*, pour des questions de sécurité.
 
 - **ENV** `VARNAME value` ou `VARNAME1=value1 VARNAME2=value2`: image sur laquelle se base la nouvelle image
-- **RUN** `command`: execute une commande shell
+- **RUN** `command`: exécute une commande shell
 
 {: .note}
 > **Notes:**
 >
-> - Il vaut mieux ne pas *RUN* des commandes de type `apt update` car cela rallonge les temps de build. Mieux vaut se baser sur des images contenant deja les updates.
-> - Chaque instruction creant un *image layer*, c'est une bonne idee de combiner les commandes ou de faire et ajouter un script avec *ADD* et l'executer avec *RUN* pour limiter le nombre d'instruction (et donc la taille de l'image)
+> - Il vaut mieux ne pas *RUN* des commandes de type `apt update` car cela rallonge les temps de build. Il vaut mieux se baser sur *des images contenant deja les updates*.
+> - Chaque instruction créant un **image layer**, c'est une bonne idée de combiner les commandes ou de faire et ajouter un script avec *ADD* et l'exécuter avec *RUN* pour limiter le nombre d'instructions et donc la taille de l'image
 
-- **ADD** `sourcePath destinationPath`: inclus des fichiers du host vers l'image. Ils sont *copies*
-- **WORKDIR** `path`: change le dossier actuel dans l'image. Toutes les instructions qui suivent seront executees dans ce `path`
-- **CMD** `commandArray`: Defini la commande qui va lancer les process dans le container. Il est vivement conseille de n'avoir qu'un process par container
-
-{: .exemple}
-> **Exemple:**
->
-> - **CMD** ["echo", "'a'"]
+- **ADD** `sourcePath destinationPath`: inclus des fichiers du host vers l'image. *Ils sont copiés*
+- **WORKDIR** `path`: change le dossier actuel dans l'image. Toutes les instructions qui suivent seront exécutées dans ce `path`
+- **CMD** `commandArray`: Definit la commande qui va lancer les process dans le container. Il est vivement conseillé de n'avoir *qu'un process par container*
+    {: .exemple}
+    > **Exemple:**
+    >
+    > + **CMD** ["echo", "'a'"]
 
 ### Run une image Docker
 
-Pour run une image Docker, il suffit d'utiliser la commande `docker run <image>`. Lorsqu'on run une image Docker, on cree un *container* dans lequel le processus s'execute.
+Pour run une image Docker, il suffit d'utiliser la commande `docker run <image>`. Lorsqu'on run une image Docker, on crée un *container* dans lequel le processus s'exécute.
 
 **Options:**
 
-- **`-d`** : run l'image en arriere plan
-- **`-p <host_port>:<container_port>`** : lie un port du host a un port du container
+- **`-d`** : run l'image en arrière plan
+- **`-p <host_port>:<container_port>`** : lie un port du host à un port du container
 - **`-e <key>=<value>`** : ajoute une variable d'environnement au container
 
 ## Containers Docker
 
-Un container Docker est une *instance* d'une image Docker, dans lequel est encapsule un processus.
+Un container Docker est **une instance** d'une image Docker, dans lequel est encapsulé un processus.
 
 ### Lister les containers sur un host
 
-Il est possible de lister les containers sur le docker host actuel grace a la commande `docker ps`.
-Pas defaut, cette commande ne liste que les containers en cours d'execution.
+Il est possible de lister les containers *sur le docker host actuel* grâce à la commande `docker ps`.
+Pas defaut, cette commande ne liste que les containers en cours d'éxécution.
 
 **Options:**
 
 - **`-q`** : retourne seulement les ID des containers
 - **`-a`** : liste tous les containers
-- **`--format <string_format>`** : formatte l'output de la commande en utilisant un template Go qui permet de mettre des placeholders `{{.Placeholder}}`
+- **`--format <string_format>`** : formate l'output de la commande en utilisant un template Go qui permet de mettre des placeholders `{{.Placeholder}}`
 
-{: .note}
-> **Note:**
->
-> - Disponible depuis la version 1.8
+    {: .note}
+    > **Note:**
+    >
+    > + Disponible depuis la version 1.8
 
-{: .exemple}
-> **Exemple:**
->
-> - `docker ps --format "{{.ID}}\t{{.Image}}"`
+    {: .exemple}
+    > **Exemple:**
+    >
+    > + `docker ps --format "{{.ID}}\t{{.Image}}"`
 
 ## Docker Mirror Registry
 
-### Interet
+### Intérêt
 
-Un *Docker Mirror Registry* permet de mettre en place un registry local, qui stocke les images que l'on pull. Si l'image que l'on pull existe dans le mirror registry, il sera pull depuis lui, et non depuis internet, ce qui prend beaucoup moins de temps.
+Un **Docker Mirror Registry** permet de mettre en place **un registry local**, qui stocke les images que l'on pull. Si l'image que l'on pull existe dans le **mirror registry**, il sera pull depuis lui, et non depuis internet, ce qui prend beaucoup moins de temps.
 
 {: .note}
 > **Note:**
 >
-> - Le Docker Mirror Registry doit etre sur le meme fs ou le meme reseau local que le(s) Docker Server pour que ca ait de l'interet. Cela est particulierement utile lorsqu'on utiliser `docker-machine`
+> - Le Docker Mirror Registry doit être sur *le meme filesystem ou le même réseau local* que le(s) Docker Server pour que ça ait de l'intérêt. Cela est particulièrement utile lorsqu'on utilise `docker-machine`
 
 ### Mise en place
 
-Pour les systemes utilisant systemd comme gestionnaire de service, il faut ajouter la ligne suivante au fichier `/etc/docker/daemon` (JSON):
+Pour les systèmes utilisant **systemd** comme gestionnaire de service, il faut ajouter la ligne suivante au fichier `/etc/docker/daemon` (JSON):
 
 ```json
 {
@@ -191,35 +190,35 @@ Pour les systemes utilisant systemd comme gestionnaire de service, il faut ajout
 }
 ```
 
-Pour la modification soit prise en compte par Docker, il faut restart le service Docker.
+Pour la modification soit prise en compte par Docker, il faut *restart le service Docker*.
 
 ## Swarm
 
-**Docker Swarm** permet de faire tourner des containers sur differents hosts, orchestres et plannifies par un plusieurs managers. Le Swarm permet donc d'implementer **la scalabilite** et **la tolerance de panne** a Docker
+**Docker Swarm** permet de faire *tourner des containers sur differents hosts*, orchestrés et plannifiés par un ou plusieurs managers. Le Swarm permet donc d'implémenter **la scalabilité** et **la tolérance de panne** à Docker.
 
 ### Managers
 
-Les managers sont les nodes du Swarm qui prennent les decisions dans le management de celui-ci. Parmis les managers est elu un **leader** qui prend les decisions et les fait approuver par les autres via **un consensus distribue assure par l'algorithme Raft**.
+Les managers sont les nodes du Swarm qui prennent les décisions dans le management de celui-ci. Parmi les managers est élu un **leader** qui prend les décisions et les fait approuver par les autres via *un consensus distribue assure par **l'algorithme Raft***.
 
 #### Leader
 
-Pour determiner un leader dans un pool de manager sans leader, chaque manager demarre un timer d'une duree aleatoire.
+Pour déterminer un leader dans *un pool de manager sans leader*, chaque manager démarre un timer d'une durée aléatoire.
 
-Lorsque leur timer est fini, chaque manager envoie une requete aux autres. Le premier manager a recevoir une reponse de validation de **chaque** managers est elu leader.
+Lorsque leur timer est fini, chaque manager *envoie une requête aux autres*. Le premier manager à recevoir une réponse de validation de *chaque managers* est élu **leader**.
 
-Une fois elu, le leader envoi periodiquement des notifications aux autres managers pour leur signifier qu'il est toujours up et leader.
+Une fois élu, *le leader envoi périodiquement des notifications aux autres managers* pour leur signifier qu'il est toujours up et leader.
 
-Si les managers ne recoivent plus de notification du leader pendant un certain temps, ils procedent a une nouvelle election.
+Si les managers ne recoivent plus de notification du leader pendant un certain temps, ils procèdent à *une nouvelle election*.
 
-Chaque manager a une copy de la bdd raft contenant l'etat du cluster.
-Lors d'une decision, le leader envoie sa decision aux managers, et si la majorite des reponses sont positives, les bdd raft de chaque manager est update.
+Chaque manager a une copie de **la base de donnée1 raft** contenant **l'état du cluster**.
+Lors d'une décision, *le leader envoie sa décision aux managers*, et si la majorité des réponses sont positives, les base de données raft de chaque manager est mis a jour.
 
 #### Nombre de managers
 
-Pour un nombre de manager N, la majorite, appelee ***quorum*** se fait a: `floor(N+1 / 2)`
-Il est conseille de choisir une nombre impair, car si le reseau se segmente en deux, il y aura toujours un des deux networks qui aura assez de manager pour survivre
+Pour un nombre de manager N, la majorité, appelée ***quorum*** se fait à : `floor(N+1 / 2)`
+Il est conseillé de choisir un nombre impair, car si le réseau se segmente en deux, il y aura toujours un des deux networks qui aura assez de manager pour survivre
 
-Mais si un cluster fail, les worker nodes fonctionnent toujours et continuent de fonctionner. Il n'est juste plus possible de modifier le cluster. Pour reparer la situation, il suffit de re-up les managers ou de forcer un nouveau cluster a partir de la machine d'un ancien manager, puisqu'il a conserve les data du swarm.
+Mais si un cluster fail, les worker nodes fonctionnent toujours et continuent de fonctionner. Il n'est juste plus possible de modifier le cluster.
 
 #### Perte du quorum
 
